@@ -1,21 +1,22 @@
-import { register as registerSwiperCustomElements } from 'swiper/element/bundle';
-import { load } from "emmy-dom";
-
-registerSwiperCustomElements();
+import { html, load } from 'emmy-dom'
+import './components/slider'
+import './components/slide'
 
 export function app({ el }) {
-  el.className = 'flex flex-col justify-center items-center space-y-3 text-center w-full h-full text-white';
+  el.className = 'flex flex-col justify-center items-center text-center w-full h-full text-white'
 
-  return `
-    <h1 class="sr-only">Hello from Emmy.js!</h1>
-    <swiper-container slides-per-view="1" css-mode="true">
-      <swiper-slide>Slide 1</swiper-slide>
-      <swiper-slide>Slide 2</swiper-slide>
-      <swiper-slide>Slide 3</swiper-slide>
-      ...
-    </swiper-container>
-  `;
-  // https://www.sitepoint.com/how-to-create-beautiful-html-css-presentations-with-webslides/
+  return html`
+    <Slider>
+      <Slide classname='gap-6'>
+        <h1 class='text-4xl'>Functional Web Components</h1>
+        <h2 class='text-2xl'>El futuro de la web</h2>
+      </Slide>
+      <Slide classname='bg-slate-100 text-slate-950'>
+        <h2 class='text-4xl'>Hello from Emmy.js!</h1>
+        <img src='code.png' class='w-1/2' />
+      </Slide>
+    </Slider>
+  `
 }
 
-export const App = load(app, 'App');
+export const App = load(app, 'App')
