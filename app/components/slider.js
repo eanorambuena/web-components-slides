@@ -1,5 +1,7 @@
 import { load, html } from 'emmy-dom'
 import Glide, { Controls, Keyboard } from '@glidejs/glide/dist/glide.modular.esm'
+import '@glidejs/glide/dist/css/glide.core.min.css'
+import '@glidejs/glide/dist/css/glide.theme.min.css'
 
 export function slider({ el, children }) {
   el.className = 'flex flex-col justify-center items-center w-full h-full'
@@ -11,8 +13,6 @@ export function slider({ el, children }) {
   }, ['didMount'])
 
   return html`
-    <link rel='stylesheet' href='node_modules/@glidejs/glide/dist/css/glide.core.min.css'>
-    <link rel='stylesheet' href='node_modules/@glidejs/glide/dist/css/glide.theme.min.css'>
     <div class='glide w-full h-full'>
       <div class='glide__track w-full h-full' data-glide-el='track'>
         <section class='glide__slides w-full h-full'>
