@@ -1,14 +1,20 @@
-import { load, html } from 'emmy-dom'
-import Glide, { Controls, Keyboard } from '@glidejs/glide/dist/glide.modular.esm'
-import '@glidejs/glide/dist/css/glide.core.min.css'
-import '@glidejs/glide/dist/css/glide.theme.min.css'
+import { load, html, Emmy } from 'emmy-dom/dist/server'
+if (!Emmy.Glide) {
+  Emmy.Glide = class {
+    mount = () => {}
+    go = () => {}
+  }
+  Emmy.markdown = ''
+  var Controls = {}
+  var Keyboard = {}
+}
 
 export function slider({ el, children }) {
   el.className = 'flex flex-col justify-center items-center w-full h-full'
   
   el.useEffect(() => {
     setTimeout(() => {
-      new Glide('.glide').mount({ Controls, Keyboard })
+      Emmy.glide = new Emmy.Glide('.glide').mount({ Controls, Keyboard })
     }, 200)
   }, ['didMount'])
 
@@ -19,10 +25,9 @@ export function slider({ el, children }) {
           ${children()}
         </ul>
       </div>
-      <div class='glide__arrows opacity-0' data-glide-el='controls'>
-        <button class='glide__arrow glide__arrow--left' data-glide-dir='<'>prev</button>
-        <button class='glide__arrow glide__arrow--right' data-glide-dir='>'>next</button>
-      </div>
+      <div class='glide__arrows opacity-0 w-full' data-glide-el='controls'>
+        <button class='glide__arrow glide__arrow--left w-1/2 h-full' data-glide-dir='<'>prev</button>
+        <button class='glide__arrow glide__arrow--right w-1/2 h-full' data-glide-dir='>'>next</button>
       </div>
     </div>
   `

@@ -12,8 +12,112 @@
   </head>
   <body class="antialiased h-[100vh] w-[100dvw] flex flex-col justify-center items-center bg-slate-900">
     <main class="flex flex-col justify-center items-center space-y-3 text-center w-full h-full">
-      <emmy-app></emmy-app>
-      <script type='module' src='./app/index.js'></script>
+      
+    <emmy-app state="{'rerenderCount':0}" class="flex flex-col justify-center items-center text-center w-full h-full text-white">
+    <emmy-slider state="{'rerenderCount':0}" class="flex flex-col justify-center items-center w-full h-full">
+    <div class="glide w-full h-full">
+      <div class="glide__track w-full h-full" data-glide-el="track">
+        <section class="glide__slides w-full h-full">
+          
+        
+      </section></div>
+      <div class="glide__arrows opacity-0 w-full" data-glide-el="controls">
+        <button class="glide__arrow glide__arrow--left w-1/2 h-full" data-glide-dir="<">prev</button>
+        <button class="glide__arrow glide__arrow--right w-1/2 h-full" data-glide-dir=">">next</button>
+      </div>
+    </div>
+  </emmy-slider>
+  </emmy-app>
+    <script type="module">
+      import { loadGlobalEmmy } from 'emmy-dom'
+      loadGlobalEmmy({"markdown":""})
+      
+    import { load, html, jsx, Router, Route, Emmy, loadGlobalEmmy as lge } from 'emmy-dom'
+    lge({"markdown":{"func":"<section class=\"markdown flex flex-col justify-top items-left text-left p-4 pt-0 mb-4 w-full sm:w-[90%] md:w-[70%] h-fit box-border gap-6\"><h2>Functional Components</h2>\n<p>You can use functional components to create components without classes. Functional components are just functions that return a HTML code or a function that returns HTML code. The following example shows how to create a functional component:</p>\n<pre><code class=\"language-javascript\">import { load, html } from 'emmy-dom'\n\nfunction helloWorld() {\n  return html`&lt;h1&gt;Hello World!&lt;/h1&gt;`\n}\n\nload(helloWorld, 'HelloWorld')\n</code></pre>\n</section>","index":"<section class=\"markdown flex flex-col justify-top items-left text-left p-4 pt-0 mb-4 w-full sm:w-[90%] md:w-[70%] h-fit box-border gap-6\"><p>Emmy.js is a JavaScript library for building user interfaces using functional web components. Inspired by React.js, it uses the platform's native APIs to render components, in a declarative way.</p>\n<p>It's core library <code>emmy-dom</code> allows you to create components using functional components, class components, and page components. It also includes hooks and a router to create single page applications.</p>\n</section>","lit":"<section class=\"markdown flex flex-col justify-top items-left text-left p-4 pt-0 mb-4 w-full sm:w-[90%] md:w-[70%] h-fit box-border gap-6\"><h1>Lit</h1>\n<pre><code class=\"language-html\">&lt;!DOCTYPE html&gt;\n&lt;html lang=&quot;en&quot;&gt;\n  &lt;my-counter&gt;&lt;/my-counter&gt;\n\n  &lt;script type=&quot;module&quot;&gt;\n    import { LitElement, html } from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';\n\n    class Counter extends LitElement {\n      static get properties() {\n        return {\n          count: { type: Number },\n        };\n      }\n\n      constructor() {\n        super();\n        this.count = 0;\n      }\n\n      setCount = count =&gt; {\n        this.count = count;\n      };\n\n      render() {\n        const { count } = this;\n        return html`\n          &lt;h1&gt;Lit Element - Counter&lt;/h1&gt;\n          &lt;h2&gt;You clicked ${count} times&lt;/h2&gt;\n          &lt;button type=&quot;button&quot; @click=${() =&gt; this.setCount(count - 1)}&gt;Decrement&lt;/button&gt;\n          &lt;button type=&quot;button&quot; @click=${() =&gt; this.setCount(count + 1)}&gt;Increment&lt;/button&gt;\n        `;\n      }\n    }\n\n    customElements.define('my-counter', Counter);\n  &lt;/script&gt;\n&lt;/html&gt;\n</code></pre>\n</section>","lit2":"<section class=\"markdown flex flex-col justify-top items-left text-left p-4 pt-0 mb-4 w-full sm:w-[90%] md:w-[70%] h-fit box-border gap-6\"><pre><code class=\"language-html\">&lt;!DOCTYPE html&gt;\n&lt;html lang=&quot;en&quot;&gt;\n  &lt;my-counter&gt;&lt;/my-counter&gt;\n\n  &lt;script type=&quot;module&quot;&gt;\n    import { LitElement, html } from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';\n\n    class Counter extends LitElement {\n      static get properties() {\n        return {\n          count: { type: Number },\n        };\n      }\n\n      constructor() {\n        super();\n        this.count = 0;\n      }\n\n      setCount = count =&gt; {\n        this.count = count;\n      };\n</code></pre>\n</section>","lit3":"<section class=\"markdown flex flex-col justify-top items-left text-left p-4 pt-0 mb-4 w-full sm:w-[90%] md:w-[70%] h-fit box-border gap-6\"><pre><code class=\"language-html\">      render() {\n        const { count } = this;\n        return html`\n          &lt;h1&gt;Lit Element - Counter&lt;/h1&gt;\n          &lt;h2&gt;You clicked ${count} times&lt;/h2&gt;\n          &lt;button type=&quot;button&quot; @click=${() =&gt; this.setCount(count - 1)}&gt;Decrement&lt;/button&gt;\n          &lt;button type=&quot;button&quot; @click=${() =&gt; this.setCount(count + 1)}&gt;Increment&lt;/button&gt;\n        `;\n      }\n    }\n\n    customElements.define('my-counter', Counter);\n  &lt;/script&gt;\n&lt;/html&gt;\n</code></pre>\n</section>"}})
+    
+    import Glide, { Controls, Keyboard } from '@glidejs/glide/dist/glide.modular.esm'
+    import '@glidejs/glide/dist/css/glide.core.min.css'
+    import '@glidejs/glide/dist/css/glide.theme.min.css'
+    Emmy.Glide = Glide
+  
+  
+      
+    function slide({ el, children, props }) {
+  el.className = "flex flex-col justify-center items-center w-full h-full prose prose-slate dark:prose-invert max-w-none";
+  let className = "";
+  if (props()?.classname)
+    className += ` ${props().classname()}`;
+  return html`
+    <article class='glide__slide w-full h-full flex flex-col justify-center items-center ${className}'>
+      ${children()}
+    </article>
+  `;
+}
+    load(slide, 'Slide')
+    document.querySelectorAll('emmy-slide').forEach((element) => {
+      element.connectedCallback()
+    })
+  
+    function slider({ el, children }) {
+  return el.className = "flex flex-col justify-center items-center w-full h-full", el.useEffect(() => {
+    setTimeout(() => {
+      Emmy.glide = new Emmy.Glide(".glide").mount({ Controls, Keyboard });
+    }, 200);
+  }, ["didMount"]), html`
+    <div class='glide w-full h-full'>
+      <div class='glide__track w-full h-full' data-glide-el='track'>
+        <section class='glide__slides w-full h-full'>
+          ${children()}
+        </ul>
+      </div>
+      <div class='glide__arrows opacity-0 w-full' data-glide-el='controls'>
+        <button class='glide__arrow glide__arrow--left w-1/2 h-full' data-glide-dir='<'>prev</button>
+        <button class='glide__arrow glide__arrow--right w-1/2 h-full' data-glide-dir='>'>next</button>
+      </div>
+    </div>
+  `;
+}
+    load(slider, 'Slider')
+    document.querySelectorAll('emmy-slider').forEach((element) => {
+      element.connectedCallback()
+    })
+  
+    function app({ el }) {
+  return el.className = "flex flex-col justify-center items-center text-center w-full h-full text-white", html`
+    <Slider>
+      <Slide>
+        <h1 class='text-4xl'>Functional Web Components</h1>
+        <h2 class='text-2xl'>El futuro de la web</h2>
+      </Slide>
+      <Slide>
+        <h2 class='text-4xl'>Hello from Emmy.js!</h1>
+        <img src='code.png' class='w-1/2' />
+      </Slide>
+      <Slide>
+        ${Emmy.markdown.index}
+      </Slide>
+      <Slide>
+        ${Emmy.markdown.func}
+      </Slide>
+      <Slide classname='scale-[40%]'>
+        ${Emmy.markdown.lit}
+      </Slide>
+      <Slide className='scale-75'>
+        ${Emmy.markdown.lit2}
+      </Slide>
+      <Slide className='scale-75'>
+        ${Emmy.markdown.lit3}
+      </Slide>
+    </Slider>
+  `;
+}
+    load(app, 'App')
+    document.querySelectorAll('emmy-app').forEach((element) => {
+      element.connectedCallback()
+    })
+  
+    </script>
+  
     </main>
   </body>
 </html>
