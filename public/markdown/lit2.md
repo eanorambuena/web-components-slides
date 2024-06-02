@@ -1,22 +1,25 @@
 ```javascript
-  setCount = count => {
-    this.count = count
-  }
+import { LitElement, html } from 'lit'
+import { customElement, property } from 'lit/decorators.js'
+
+@customElement('lit-counter')
+class MyElement extends LitElement {
+  @property({type: Numeber, reflect: true})
+  count: number = 0
 
   render() {
-    const { count } = this
     return html`
-      <h1>Lit Element - Counter</h1>
-      <h2>You clicked ${count} times</h2>
-      <button @click=${() => this.setCount(count - 1)}>
-        +
-      </button>
-      <button @click=${() => this.setCount(count + 1)}>
-        -
-      </button>
+      <h1>Lit - Counter</h1>
+      <h2>You clicked <strong>${this.count}</strong> times</h2>
+      <div>
+        <button @click="${() => this.count++}">
+          +
+        </button>
+        <button @click="${() => this.count--}">
+          -
+        </button>
+      </div>
     `
   }
 }
-
-customElements.define('my-counter', Counter)
-```
+```  

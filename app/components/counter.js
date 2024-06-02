@@ -1,4 +1,4 @@
-import { load, html } from 'emmy-dom/dist/server'
+import { load, html, jsx } from 'emmy-dom/dist/server'
 
 export function counter({ el }) {
   el.className = 'flex flex-col gap-6 justify-center items-center w-fit h-fit text-xl'
@@ -11,12 +11,12 @@ export function counter({ el }) {
 
   return () => html`
     <h1 class='text-4xl'>Emmy - Counter</h1>
-    <h2>You clicked ${count()} times</h2>
+    <h2>You clicked <strong>${count()}</strong> times</h2>
     <div class='flex flex-row justify-center items-center w-fit h-fit gap-6'>
-      <button class='increment bg-slate-700 rounded-full size-14 hover:scale-110 transition-transform'>
+      <button class='increment bg-slate-700 rounded-full size-14 transition-transform hover:scale-110 hover:bg-slate-800'>
         +
       </button>
-      <button class='decrement bg-slate-700 rounded-full size-14 hover:scale-110 transition'>
+      <button class='decrement bg-slate-700 rounded-full size-14 transition-transform hover:scale-110 hover:bg-slate-800'>
         -
       </button>
     </div>

@@ -1,17 +1,3 @@
 ## LitElement
 
-```javascript
-import { LitElement, html } from 'lit-element'
-
-class Counter extends LitElement {
-  static get properties() {
-    return {
-      count: { type: Number },
-    }
-  }
-
-  constructor() {
-    super()
-    this.count = 0
-  }
-```  
+LitElement is a simple base class for creating fast, lightweight web components. It is a part of the Lit stack, a set of tools for building fast, lightweight web components.
