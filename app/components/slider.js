@@ -1,4 +1,7 @@
 import { load, html, Emmy } from 'emmy-dom/dist/server'
+import './slide'
+import './markdown'
+
 if (!Emmy.Glide) {
   Emmy.Glide = class {
     mount = () => {}
@@ -25,9 +28,9 @@ export function slider({ el, children }) {
           ${children()}
         </ul>
       </div>
-      <div class='glide__arrows opacity-0 w-full' data-glide-el='controls'>
-        <button class='glide__arrow glide__arrow--left w-1/2 h-full' data-glide-dir='<'>prev</button>
-        <button class='glide__arrow glide__arrow--right w-1/2 h-full' data-glide-dir='>'>next</button>
+      <div class='glide__arrows opacity-0 w-full flex flex-row justify-between' data-glide-el='controls'>
+        <button class='glide__arrow glide__arrow--left w-1/3 h-full' data-glide-dir='<'>prev</button>
+        <button class='glide__arrow glide__arrow--right w-1/3 h-full' data-glide-dir='>'>next</button>
       </div>
     </div>
   `

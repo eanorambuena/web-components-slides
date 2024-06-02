@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="#0F172A">
     <link rel="icon" href="https://raw.githubusercontent.com/emmyjs/emmyjs.github.io/main/public/favicon.ico" type="image/x-icon">
-    
-    
     <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="https://emmyjs.pages.dev/dracula-modified.css">
     
   </head>
   <body class="antialiased h-[100vh] w-[100dvw] flex flex-col justify-center items-center bg-slate-900">
@@ -21,9 +20,9 @@
           
         
       </section></div>
-      <div class="glide__arrows opacity-0 w-full" data-glide-el="controls">
-        <button class="glide__arrow glide__arrow--left w-1/2 h-full" data-glide-dir="<">prev</button>
-        <button class="glide__arrow glide__arrow--right w-1/2 h-full" data-glide-dir=">">next</button>
+      <div class="glide__arrows opacity-0 w-full flex flex-row justify-between" data-glide-el="controls">
+        <button class="glide__arrow glide__arrow--left w-1/3 h-full" data-glide-dir="<">prev</button>
+        <button class="glide__arrow glide__arrow--right w-1/3 h-full" data-glide-dir=">">next</button>
       </div>
     </div>
   </emmy-slider>
@@ -33,22 +32,64 @@
       loadGlobalEmmy({"markdown":""})
       
     import { load, html, jsx, Router, Route, Emmy, loadGlobalEmmy as lge } from 'emmy-dom'
-    lge({"markdown":{"func":"<section class=\"markdown flex flex-col justify-top items-left text-left p-4 pt-0 mb-4 w-full sm:w-[90%] md:w-[70%] h-fit box-border gap-6\"><h2>Functional Components</h2>\n<p>You can use functional components to create components without classes. Functional components are just functions that return a HTML code or a function that returns HTML code. The following example shows how to create a functional component:</p>\n<pre><code class=\"language-javascript\">import { load, html } from 'emmy-dom'\n\nfunction helloWorld() {\n  return html`&lt;h1&gt;Hello World!&lt;/h1&gt;`\n}\n\nload(helloWorld, 'HelloWorld')\n</code></pre>\n</section>","index":"<section class=\"markdown flex flex-col justify-top items-left text-left p-4 pt-0 mb-4 w-full sm:w-[90%] md:w-[70%] h-fit box-border gap-6\"><p>Emmy.js is a JavaScript library for building user interfaces using functional web components. Inspired by React.js, it uses the platform's native APIs to render components, in a declarative way.</p>\n<p>It's core library <code>emmy-dom</code> allows you to create components using functional components, class components, and page components. It also includes hooks and a router to create single page applications.</p>\n</section>","lit":"<section class=\"markdown flex flex-col justify-top items-left text-left p-4 pt-0 mb-4 w-full sm:w-[90%] md:w-[70%] h-fit box-border gap-6\"><h1>Lit</h1>\n<pre><code class=\"language-html\">&lt;!DOCTYPE html&gt;\n&lt;html lang=&quot;en&quot;&gt;\n  &lt;my-counter&gt;&lt;/my-counter&gt;\n\n  &lt;script type=&quot;module&quot;&gt;\n    import { LitElement, html } from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';\n\n    class Counter extends LitElement {\n      static get properties() {\n        return {\n          count: { type: Number },\n        };\n      }\n\n      constructor() {\n        super();\n        this.count = 0;\n      }\n\n      setCount = count =&gt; {\n        this.count = count;\n      };\n\n      render() {\n        const { count } = this;\n        return html`\n          &lt;h1&gt;Lit Element - Counter&lt;/h1&gt;\n          &lt;h2&gt;You clicked ${count} times&lt;/h2&gt;\n          &lt;button type=&quot;button&quot; @click=${() =&gt; this.setCount(count - 1)}&gt;Decrement&lt;/button&gt;\n          &lt;button type=&quot;button&quot; @click=${() =&gt; this.setCount(count + 1)}&gt;Increment&lt;/button&gt;\n        `;\n      }\n    }\n\n    customElements.define('my-counter', Counter);\n  &lt;/script&gt;\n&lt;/html&gt;\n</code></pre>\n</section>","lit2":"<section class=\"markdown flex flex-col justify-top items-left text-left p-4 pt-0 mb-4 w-full sm:w-[90%] md:w-[70%] h-fit box-border gap-6\"><pre><code class=\"language-html\">&lt;!DOCTYPE html&gt;\n&lt;html lang=&quot;en&quot;&gt;\n  &lt;my-counter&gt;&lt;/my-counter&gt;\n\n  &lt;script type=&quot;module&quot;&gt;\n    import { LitElement, html } from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';\n\n    class Counter extends LitElement {\n      static get properties() {\n        return {\n          count: { type: Number },\n        };\n      }\n\n      constructor() {\n        super();\n        this.count = 0;\n      }\n\n      setCount = count =&gt; {\n        this.count = count;\n      };\n</code></pre>\n</section>","lit3":"<section class=\"markdown flex flex-col justify-top items-left text-left p-4 pt-0 mb-4 w-full sm:w-[90%] md:w-[70%] h-fit box-border gap-6\"><pre><code class=\"language-html\">      render() {\n        const { count } = this;\n        return html`\n          &lt;h1&gt;Lit Element - Counter&lt;/h1&gt;\n          &lt;h2&gt;You clicked ${count} times&lt;/h2&gt;\n          &lt;button type=&quot;button&quot; @click=${() =&gt; this.setCount(count - 1)}&gt;Decrement&lt;/button&gt;\n          &lt;button type=&quot;button&quot; @click=${() =&gt; this.setCount(count + 1)}&gt;Increment&lt;/button&gt;\n        `;\n      }\n    }\n\n    customElements.define('my-counter', Counter);\n  &lt;/script&gt;\n&lt;/html&gt;\n</code></pre>\n</section>"}})
+    lge({"markdown":{"emmy1":"<section class=\"markdown flex flex-col justify-top items-left text-left p-0 m-0 w-full h-fit box-border\"><h2>Emmy.js</h2>\n<p>Emmy.js is a JavaScript library for building user interfaces using functional web components. Inspired by React.js, it uses the platform's native APIs to render components, in a declarative way.</p>\n<p>It's core library <strong>emmy-dom</strong> allows you to create components using functional components, class components, and page components. It also includes hooks and a router to create single page applications.</p>\n</section>","emmy2":"<section class=\"markdown flex flex-col justify-top items-left text-left p-0 m-0 w-full h-fit box-border\"><h2>Functional Components</h2>\n<p>You can use functional components to create components without classes. Functional components are just functions that return a HTML code or a function that returns HTML code. The following example shows how to create a functional component:</p>\n<pre><code class=\"language-javascript\">import { load, html } from 'emmy-dom'\n\nfunction helloWorld() {\n  return html`&lt;h1&gt;Hello World!&lt;/h1&gt;`\n}\n\nload(helloWorld, 'HelloWorld')\n</code></pre>\n</section>","emmy3":"<section class=\"markdown flex flex-col justify-top items-left text-left p-0 m-0 w-full h-fit box-border\"><pre><code class=\"language-javascript\">import { html, load, Emmy } from 'emmy-dom'\n\nexport function app({ el }) {\n  el.className = 'flex flex-col justify-center items-center text-center w-full h-full text-white'\n\n  return html`\n    &lt;Slider&gt;\n      &lt;Slide&gt;\n        &lt;h1 class='text-6xl'&gt;Functional Web Components&lt;/h1&gt;\n        &lt;h2 class='text-4xl'&gt;El futuro de la web&lt;/h2&gt;\n      &lt;/Slide&gt;\n      &lt;Slide&gt;\n        &lt;Markdown classname='lg:!w-1/2'&gt;\n          ${Emmy.markdown.emmy1}\n        &lt;/Markdown&gt;\n      &lt;/Slide&gt;\n    &lt;/Slider&gt;\n  `\n}\n\nexport const App = load(app, 'App')\n</code></pre>\n</section>","lit1":"<section class=\"markdown flex flex-col justify-top items-left text-left p-0 m-0 w-full h-fit box-border\"><h2>LitElement</h2>\n<pre><code class=\"language-javascript\">import { LitElement, html } from 'lit-element'\n\nclass Counter extends LitElement {\n  static get properties() {\n    return {\n      count: { type: Number },\n    }\n  }\n\n  constructor() {\n    super()\n    this.count = 0\n  }\n</code></pre>\n</section>","lit2":"<section class=\"markdown flex flex-col justify-top items-left text-left p-0 m-0 w-full h-fit box-border\"><pre><code class=\"language-javascript\">  setCount = count =&gt; {\n    this.count = count\n  }\n\n  render() {\n    const { count } = this\n    return html`\n      &lt;h1&gt;Lit Element - Counter&lt;/h1&gt;\n      &lt;h2&gt;You clicked ${count} times&lt;/h2&gt;\n      &lt;button @click=${() =&gt; this.setCount(count - 1)}&gt;\n        +\n      &lt;/button&gt;\n      &lt;button @click=${() =&gt; this.setCount(count + 1)}&gt;\n        -\n      &lt;/button&gt;\n    `\n  }\n}\n\ncustomElements.define('my-counter', Counter)\n</code></pre>\n</section>"}})
     
     import Glide, { Controls, Keyboard } from '@glidejs/glide/dist/glide.modular.esm'
     import '@glidejs/glide/dist/css/glide.core.min.css'
     import '@glidejs/glide/dist/css/glide.theme.min.css'
+    import hljs from 'https://cdn.skypack.dev/highlight.js'
+    setTimeout(() => {
+      document.querySelectorAll('pre code').forEach((block) => {
+        hljs.highlightBlock(block)
+      })
+    })
     Emmy.Glide = Glide
   
   
       
+    function counter({ el }) {
+  el.className = "flex flex-col gap-6 justify-center items-center w-fit h-fit text-xl";
+  const [count, setCount] = el.useState(0);
+  return el.useEffect(() => {
+    el.querySelector(".increment").addEventListener("click", () => setCount(count() + 1)), el.querySelector(".decrement").addEventListener("click", () => setCount(count() - 1));
+  }, []), () => html`
+    <h1 class='text-4xl'>Emmy - Counter</h1>
+    <h2>You clicked ${count()} times</h2>
+    <div class='flex flex-row justify-center items-center w-fit h-fit gap-6'>
+      <button class='increment bg-slate-700 rounded-full size-14 hover:scale-110 transition-transform'>
+        +
+      </button>
+      <button class='decrement bg-slate-700 rounded-full size-14 hover:scale-110 transition'>
+        -
+      </button>
+    </div>
+  `;
+}
+    load(counter, 'Counter')
+    document.querySelectorAll('emmy-counter').forEach((element) => {
+      element.connectedCallback()
+    })
+  
+    function markdown({ el, children, props }) {
+  let className = "";
+  if (props()?.classname)
+    className += ` ${props().classname()}`;
+  return el.className = `flex flex-col justify-center items-center w-full h-full p-0 m-0 prose prose-slate dark:prose-invert max-w-none ${className}`, html`
+    ${children()}
+  `;
+}
+    load(markdown, 'Markdown')
+    document.querySelectorAll('emmy-markdown').forEach((element) => {
+      element.connectedCallback()
+    })
+  
     function slide({ el, children, props }) {
-  el.className = "flex flex-col justify-center items-center w-full h-full prose prose-slate dark:prose-invert max-w-none";
+  el.className = "flex flex-col justify-center items-center w-full h-full";
   let className = "";
   if (props()?.classname)
     className += ` ${props().classname()}`;
   return html`
-    <article class='glide__slide w-full h-full flex flex-col justify-center items-center ${className}'>
+    <article class='glide__slide w-full h-full flex flex-col justify-center items-center gap-6 p-10 ${className}'>
       ${children()}
     </article>
   `;
@@ -70,9 +111,9 @@
           ${children()}
         </ul>
       </div>
-      <div class='glide__arrows opacity-0 w-full' data-glide-el='controls'>
-        <button class='glide__arrow glide__arrow--left w-1/2 h-full' data-glide-dir='<'>prev</button>
-        <button class='glide__arrow glide__arrow--right w-1/2 h-full' data-glide-dir='>'>next</button>
+      <div class='glide__arrows opacity-0 w-full flex flex-row justify-between' data-glide-el='controls'>
+        <button class='glide__arrow glide__arrow--left w-1/3 h-full' data-glide-dir='<'>prev</button>
+        <button class='glide__arrow glide__arrow--right w-1/3 h-full' data-glide-dir='>'>next</button>
       </div>
     </div>
   `;
@@ -86,27 +127,34 @@
   return el.className = "flex flex-col justify-center items-center text-center w-full h-full text-white", html`
     <Slider>
       <Slide>
-        <h1 class='text-4xl'>Functional Web Components</h1>
-        <h2 class='text-2xl'>El futuro de la web</h2>
+        <h1 class='text-6xl'>Functional Web Components</h1>
+        <h2 class='text-4xl'>El futuro de la web</h2>
+      </Slide>
+      <Slide classname='md:!flex-row'>
+        <Markdown classname='md:!w-1/2 h-fit md:h-full'>
+          ${Emmy.markdown.lit1}
+        </Markdown>
+        <Markdown classname='md:!w-1/2 h-fit md:h-full text-sm'>
+          ${Emmy.markdown.lit2}
+        </Markdown>
       </Slide>
       <Slide>
-        <h2 class='text-4xl'>Hello from Emmy.js!</h1>
-        <img src='code.png' class='w-1/2' />
+        <Markdown classname='lg:!w-1/2'>
+          ${Emmy.markdown.emmy1}
+        </Markdown>
       </Slide>
       <Slide>
-        ${Emmy.markdown.index}
+        <Markdown classname='lg:!w-1/2'>
+          ${Emmy.markdown.emmy2}
+        </Markdown>
+      </Slide>
+      <Slide classname='h-fit'>
+        <Counter />
       </Slide>
       <Slide>
-        ${Emmy.markdown.func}
-      </Slide>
-      <Slide classname='scale-[40%]'>
-        ${Emmy.markdown.lit}
-      </Slide>
-      <Slide className='scale-75'>
-        ${Emmy.markdown.lit2}
-      </Slide>
-      <Slide className='scale-75'>
-        ${Emmy.markdown.lit3}
+        <Markdown classname='lg:!w-3/4'>
+          ${Emmy.markdown.emmy3}
+        </Markdown>
       </Slide>
     </Slider>
   `;

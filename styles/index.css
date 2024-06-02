@@ -8,3 +8,147 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+/* Dracula Theme v1.2.5
+ *
+ * https://github.com/dracula/highlightjs
+ *
+ * Copyright 2016-present, All rights reserved
+ *
+ * Code licensed under the MIT license
+ *
+ * @author Denis Ciccale <dciccale@gmail.com>
+ * @author Zeno Rocha <hi@zenorocha.com>
+ */
+
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+}
+
+.hljs-built_in,
+.hljs-selector-tag,
+.hljs-section,
+.hljs-link {
+  color: #8be9fd;
+}
+
+.hljs-keyword {
+  color: #ff79c6;
+}
+
+.hljs,
+.hljs-subst {
+  color: #f8f8f2;
+}
+
+.hljs-title,
+.hljs-attr,
+.hljs-meta-keyword {
+  font-style: italic;
+  color: #50fa7b;
+}
+
+.hljs-string,
+.hljs-meta,
+.hljs-name,
+.hljs-type,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition,
+.hljs-variable,
+.hljs-template-tag,
+.hljs-template-variable {
+  color: #f1fa8c;
+}
+
+.hljs-comment,
+.hljs-quote,
+.hljs-deletion {
+  color: #6272a4;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-title,
+.hljs-section,
+.hljs-doctag,
+.hljs-type,
+.hljs-name,
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-literal,
+.hljs-number {
+  color: #bd93f9;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-name {
+  color: #34aaff;
+}
+
+.hljs-attr {
+  color: #ffb834;
+}
+
+@layer components {
+  .hljs, .hljs * {
+    @apply font-mono font-medium text-lg;
+  }
+
+  .hljs .class_ {
+    @apply font-medium not-italic text-amber-600 dark:text-amber-300;
+  }
+
+  .hljs .function_ {
+    @apply font-medium not-italic text-emerald-600 dark:text-emerald-300;
+  }
+
+  .hljs .language_ {
+    @apply text-gray-600 dark:text-gray-300;
+  }
+
+  .hljs-attr {
+    @apply not-italic text-indigo-600 dark:text-indigo-300;
+  }
+
+  .hljs-keyword {
+    @apply font-medium not-italic text-blue-600 dark:text-blue-300;
+  }
+
+  .hljs-name {
+    @apply font-medium not-italic text-amber-600 dark:text-amber-300;
+  }
+
+  .hljs-params {
+    @apply text-red-600 dark:text-red-300;
+  }
+
+  .hljs-property {
+    @apply text-indigo-600 dark:text-indigo-300;
+  }
+
+  .hljs-string {
+    @apply text-green-600 dark:text-green-300;
+  }
+
+  .hljs-subst {
+    @apply text-indigo-600 dark:text-indigo-300;
+  }
+
+  .hljs-tag, .hljs-tag * {
+    @apply text-gray-300 dark:text-gray-600;
+  }
+
+  .hljs, .hljs * {
+    @apply text-sm !bg-transparent;
+  }
+}

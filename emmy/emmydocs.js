@@ -4,7 +4,7 @@ import { readFileSync, readdirSync } from 'node:fs'
 
 export const renderMarkdown = async (text) => {
   const htmlText = await marked(text)
-  return html`<section class="markdown flex flex-col justify-top items-left text-left p-4 pt-0 mb-4 w-full sm:w-[90%] md:w-[70%] h-fit box-border gap-6">${htmlText}</section>`
+  return html`<section class="markdown flex flex-col justify-top items-left text-left p-0 m-0 w-full h-fit box-border">${htmlText}</section>`
     .replace(/`/g, '\`')
     .replace(/\${/g, '\${')
     .replace(/&#39;/g, "'")

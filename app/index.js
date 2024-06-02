@@ -1,6 +1,6 @@
 import { html, load, Emmy } from 'emmy-dom/dist/server'
 import './components/slider'
-import './components/slide'
+import './components/counter'
 
 export function app({ el }) {
   el.className = 'flex flex-col justify-center items-center text-center w-full h-full text-white'
@@ -8,27 +8,34 @@ export function app({ el }) {
   return html`
     <Slider>
       <Slide>
-        <h1 class='text-4xl'>Functional Web Components</h1>
-        <h2 class='text-2xl'>El futuro de la web</h2>
+        <h1 class='text-6xl'>Functional Web Components</h1>
+        <h2 class='text-4xl'>El futuro de la web</h2>
+      </Slide>
+      <Slide classname='md:!flex-row'>
+        <Markdown classname='md:!w-1/2 h-fit md:h-full'>
+          ${Emmy.markdown.lit1}
+        </Markdown>
+        <Markdown classname='md:!w-1/2 h-fit md:h-full text-sm'>
+          ${Emmy.markdown.lit2}
+        </Markdown>
       </Slide>
       <Slide>
-        <h2 class='text-4xl'>Hello from Emmy.js!</h1>
-        <img src='code.png' class='w-1/2' />
+        <Markdown classname='lg:!w-1/2'>
+          ${Emmy.markdown.emmy1}
+        </Markdown>
       </Slide>
       <Slide>
-        ${Emmy.markdown.index}
+        <Markdown classname='lg:!w-1/2'>
+          ${Emmy.markdown.emmy2}
+        </Markdown>
+      </Slide>
+      <Slide classname='h-fit'>
+        <Counter />
       </Slide>
       <Slide>
-        ${Emmy.markdown.func}
-      </Slide>
-      <Slide classname='scale-[40%]'>
-        ${Emmy.markdown.lit}
-      </Slide>
-      <Slide className='scale-75'>
-        ${Emmy.markdown.lit2}
-      </Slide>
-      <Slide className='scale-75'>
-        ${Emmy.markdown.lit3}
+        <Markdown classname='lg:!w-3/4'>
+          ${Emmy.markdown.emmy3}
+        </Markdown>
       </Slide>
     </Slider>
   `

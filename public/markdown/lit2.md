@@ -1,24 +1,22 @@
-```html
-<!DOCTYPE html>
-<html lang="en">
-  <my-counter></my-counter>
+```javascript
+  setCount = count => {
+    this.count = count
+  }
 
-  <script type="module">
-    import { LitElement, html } from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
+  render() {
+    const { count } = this
+    return html`
+      <h1>Lit Element - Counter</h1>
+      <h2>You clicked ${count} times</h2>
+      <button @click=${() => this.setCount(count - 1)}>
+        +
+      </button>
+      <button @click=${() => this.setCount(count + 1)}>
+        -
+      </button>
+    `
+  }
+}
 
-    class Counter extends LitElement {
-      static get properties() {
-        return {
-          count: { type: Number },
-        };
-      }
-
-      constructor() {
-        super();
-        this.count = 0;
-      }
-
-      setCount = count => {
-        this.count = count;
-      };
-```  
+customElements.define('my-counter', Counter)
+```
