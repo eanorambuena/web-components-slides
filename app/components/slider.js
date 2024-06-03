@@ -19,7 +19,7 @@ export function slider({ el, children }) {
     setTimeout(() => {
       Emmy.glide = new Emmy.Glide('.glide').mount({ Controls, Keyboard })
     }, 200)
-  }, ['didMount'])
+  }, [])
 
   return html`
     <div class='glide w-full h-full'>

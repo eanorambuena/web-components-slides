@@ -1,13 +1,14 @@
-import { load, html, jsx } from 'emmy-dom/dist/server'
+import { load, html } from 'emmy-dom/dist/server'
 
 export function counter({ el }) {
   el.className = 'flex flex-col gap-6 justify-center items-center w-fit h-fit text-xl'
   const [count, setCount] = el.useState(0)
 
-  el.useEffect(() => {
-    el.querySelector('.increment').addEventListener('click', () => setCount(count() + 1))
-    el.querySelector('.decrement').addEventListener('click', () => setCount(count() - 1))
-  }, [])
+  setTimeout(() =>
+    el.useEffect(() => {
+      el.querySelector('.increment').addEventListener('click', () => setCount(count() + 1))
+      el.querySelector('.decrement').addEventListener('click', () => setCount(count() - 1))
+    }, []))
 
   return () => html`
     <h1 class='text-4xl'>Emmy - Counter</h1>

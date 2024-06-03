@@ -50,9 +50,9 @@
     function counter({ el }) {
   el.className = "flex flex-col gap-6 justify-center items-center w-fit h-fit text-xl";
   const [count, setCount] = el.useState(0);
-  return el.useEffect(() => {
+  return setTimeout(() => el.useEffect(() => {
     el.querySelector(".increment").addEventListener("click", () => setCount(count() + 1)), el.querySelector(".decrement").addEventListener("click", () => setCount(count() - 1));
-  }, []), () => html`
+  }, [])), () => html`
     <h1 class='text-4xl'>Emmy - Counter</h1>
     <h2>You clicked <strong>${count()}</strong> times</h2>
     <div class='flex flex-row justify-center items-center w-fit h-fit gap-6'>
@@ -104,7 +104,7 @@
     setTimeout(() => {
       Emmy.glide = new Emmy.Glide(".glide").mount({ Controls, Keyboard });
     }, 200);
-  }, ["didMount"]), html`
+  }, []), html`
     <div class='glide w-full h-full'>
       <div class='glide__track w-full h-full' data-glide-el='track'>
         <section class='glide__slides w-full h-full'>
