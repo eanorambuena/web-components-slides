@@ -3,9 +3,9 @@ import './components/slider'
 import './components/counter'
 
 export function app({ el }) {
-  el.className = 'flex flex-col justify-center items-center text-center w-full h-full text-white'
+  el.className = 'flex flex-col justify-center items-center text-center w-full h-full'
 
-  return html`
+  return () => html`
     <Slider>
       <Slide>
         <h1 class='text-6xl'>Functional Web Components</h1>

@@ -8,16 +8,17 @@ export function counter({ el }) {
     el.useEffect(() => {
       el.querySelector('.increment').addEventListener('click', () => setCount(count() + 1))
       el.querySelector('.decrement').addEventListener('click', () => setCount(count() - 1))
-    }, []))
+    }, [])
+  )
 
   return () => html`
     <h1 class='text-4xl'>Emmy - Counter</h1>
     <h2>You clicked <strong>${count()}</strong> times</h2>
     <div class='flex flex-row justify-center items-center w-fit h-fit gap-6'>
-      <button class='increment bg-slate-700 rounded-full size-14 transition-transform hover:scale-110 hover:bg-slate-800'>
+      <button class='increment bg-slate-400 dark:bg-slate-700 rounded-full size-14 transition-transform hover:scale-110 hover:bg-slate-300 dark:hover:bg-slate-800'>
         +
       </button>
-      <button class='decrement bg-slate-700 rounded-full size-14 transition-transform hover:scale-110 hover:bg-slate-800'>
+      <button class='decrement bg-slate-400 dark:bg-slate-700 rounded-full size-14 transition-transform hover:scale-110 hover:bg-slate-300 dark:hover:bg-slate-800'>
         -
       </button>
     </div>

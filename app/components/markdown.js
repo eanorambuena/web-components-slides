@@ -1,4 +1,4 @@
-import { load, html } from 'emmy-dom/dist/server'
+import { load } from 'emmy-dom/dist/server'
 
 export function markdown({ el, children, props }) {
   let className = ''
@@ -8,9 +8,7 @@ export function markdown({ el, children, props }) {
 
   el.className = `flex flex-col justify-center items-center w-full h-full p-0 m-0 prose prose-slate dark:prose-invert max-w-none ${className}`
 
-  return html`
-    ${children()}
-  `
+  return children
 }
 
 load(markdown, 'Markdown')
