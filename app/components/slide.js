@@ -1,7 +1,7 @@
 import { load, html } from 'emmy-dom/dist/server'
 
 export function slide({ el, children, props }) {
-  el.className = 'flex flex-col justify-center items-center w-full h-full'
+  el.className = 'flex flex-col justify-center items-center w-full min-h-screen h-full lg:min-h-none'
 
   function callback(entries, observer) {
     entries.forEach(entry => {
@@ -30,7 +30,7 @@ export function slide({ el, children, props }) {
   }
 
   return () => html`
-    <article class='glide__slide w-full h-full flex flex-col justify-center items-center gap-6 p-10 ${className}'>
+    <article class='glide__slide w-full !h-full flex flex-col justify-center items-center gap-6 p-10 ${className}'>
       ${children()}
     </article>
   `

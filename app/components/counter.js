@@ -1,7 +1,7 @@
 import { load, html } from 'emmy-dom/dist/server'
 
 export function counter({ el }) {
-  el.className = 'flex flex-col gap-6 justify-center items-center w-fit h-fit text-xl'
+  el.className = 'flex flex-col gap-6 justify-center items-center w-fit h-full text-xl'
   const [count, setCount] = el.useState(0)
 
   setTimeout(() =>

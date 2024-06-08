@@ -23,12 +23,12 @@ export function app({ el }) {
       </Slide>
       <Slide index='1'>
         <Meta title='¿Qué son los Web Components?' />
-        <Markdown classname='lg:!w-4/6'>
+        <Markdown classname='md:!w-2/3'>
           ${Emmy.markdown.webComponents ?? contentFallback}
         </Markdown>
       </Slide>
       <Slide index='2'>
-        <Markdown classname='lg:!w-4/6'>
+        <Markdown classname='lg:!w-2/3'>
           ${Emmy.markdown.webComponents2 ?? contentFallback}
         </Markdown>
       </Slide>
@@ -41,12 +41,12 @@ export function app({ el }) {
           ${Emmy.markdown.lit2 ?? contentFallback}
         </Markdown>
       </Slide>
-      <Slide classname='gap-1 lg:!w-full' index='4'>
+      <Slide classname='gap-1 xl:!w-3/4' index='4'>
         <Meta title='Functional Web Components' />
-        <Markdown classname='lg:!w-3/4 lg:!h-1/3'>
+        <Markdown classname='lg:!h-1/3'>
           ${Emmy.markdown.functional1 ?? contentFallback}
         </Markdown>
-        <div class='flex flex-row justify-center items-start gap-4 lg:w-3/4'>
+        <div class='flex flex-col md:flex-row justify-center items-start gap-4 w-full'>
           <Markdown classname='lg:!w-2/5 items-start'>
             ${Emmy.markdown.functional2 ?? contentFallback}
           </Markdown>
@@ -64,7 +64,7 @@ export function app({ el }) {
           ${Emmy.markdown.emmy3 ?? contentFallback}
         </Markdown>
       </Slide>
-      <Slide classname='h-fit' index='6'>
+      <Slide classname='h-screen md:h-fit' index='6'>
         <Meta title='Emmy - Counter' />
         <Counter />
       </Slide>
