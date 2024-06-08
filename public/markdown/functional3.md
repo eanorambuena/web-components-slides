@@ -2,7 +2,7 @@
 
 ```javascript
 import { html } from 'lit'
-import { component } from 'haunted.js'
+import { component } from 'haunted'
 
 function HelloWorld() {
   return html`<h1>Hello World!</h1>`

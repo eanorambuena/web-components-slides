@@ -24,13 +24,16 @@
       <section class="w-full h-full p-4">
         
       <emmy-slide state="{'rerenderCount':0}" class="flex flex-col justify-center items-center w-full min-h-screen h-full lg:min-h-none" index="0"></emmy-slide>
-      <emmy-slide state="{'rerenderCount':0}" class="flex flex-col justify-center items-center w-full min-h-screen h-full lg:min-h-none" index="1"></emmy-slide>
+      <emmy-slide state="{'rerenderCount':0}" class="flex flex-col justify-center items-center w-full min-h-screen h-full lg:min-h-none" index="1" classname="gap-8"></emmy-slide>
       <emmy-slide state="{'rerenderCount':0}" class="flex flex-col justify-center items-center w-full min-h-screen h-full lg:min-h-none" index="2"></emmy-slide>
-      <emmy-slide state="{'rerenderCount':0}" class="flex flex-col justify-center items-center w-full min-h-screen h-full lg:min-h-none" classname="lg:!flex-row" index="3"></emmy-slide>
-      <emmy-slide state="{'rerenderCount':0}" class="flex flex-col justify-center items-center w-full min-h-screen h-full lg:min-h-none" classname="gap-1 lg:!w-[90%] xl:!w-3/4" index="4"></emmy-slide>
+      <emmy-slide state="{'rerenderCount':0}" class="flex flex-col justify-center items-center w-full min-h-screen h-full lg:min-h-none" index="3"></emmy-slide>
+      <emmy-slide state="{'rerenderCount':0}" class="flex flex-col justify-center items-center w-full min-h-screen h-full lg:min-h-none" classname="lg:!flex-row" index="4"></emmy-slide>
       <emmy-slide state="{'rerenderCount':0}" class="flex flex-col justify-center items-center w-full min-h-screen h-full lg:min-h-none" classname="lg:!flex-row" index="5"></emmy-slide>
-      <emmy-slide state="{'rerenderCount':0}" class="flex flex-col justify-center items-center w-full min-h-screen h-full lg:min-h-none" classname="h-screen md:h-fit" index="6"></emmy-slide>
-      <emmy-slide state="{'rerenderCount':0}" class="flex flex-col justify-center items-center w-full min-h-screen h-full lg:min-h-none" index="7"></emmy-slide>
+      <emmy-slide state="{'rerenderCount':0}" class="flex flex-col justify-center items-center w-full min-h-screen h-full lg:min-h-none" classname="gap-1 lg:!w-[90%] xl:!w-3/4" index="6"></emmy-slide>
+      <emmy-slide state="{'rerenderCount':0}" class="flex flex-col justify-center items-center w-full min-h-screen h-full lg:min-h-none" classname="lg:!flex-row" index="7"></emmy-slide>
+      <emmy-slide state="{'rerenderCount':0}" class="flex flex-col justify-center items-center w-full min-h-screen h-full lg:min-h-none" classname="lg:!flex-row" index="8"></emmy-slide>
+      <emmy-slide state="{'rerenderCount':0}" class="flex flex-col justify-center items-center w-full min-h-screen h-full lg:min-h-none" classname="h-screen md:h-fit" index="9"></emmy-slide>
+      <emmy-slide state="{'rerenderCount':0}" class="flex flex-col justify-center items-center w-full min-h-screen h-full lg:min-h-none" index="8"></emmy-slide>
     
       </section>
     
@@ -42,7 +45,7 @@
       loadGlobalEmmy({"markdown":"","isBrowser":true})
       
     import { load, html, jsx, Router, Route, Emmy, loadGlobalEmmy as lge } from 'emmy-dom'
-    lge({"markdown":{"emmy2":"<section class=\"markdown flex flex-col justify-top items-left text-left p-0 m-0 w-full h-fit box-border\"><h2>Emmy.js</h2>\n<p>Emmy.js is a JavaScript library for building user interfaces using functional web components. Inspired by React.js, it uses the platform's native APIs to render components, in a declarative way.</p>\n<p>It's core library <strong>emmy-dom</strong> allows you to create components using functional components, class components, and page components. It also includes hooks and a router to create single page applications.</p>\n</section>","emmy3":"<section class=\"markdown flex flex-col justify-top items-left text-left p-0 m-0 w-full h-fit box-border\"><pre><code class=\"language-javascript\">import { load, html } from 'emmy-dom'\n\nexport function counter({ el }) {\n  const [count, setCount] = el.useState(0)\n\n  el.useEffect(() =&gt; {\n    el.querySelector('.increment').addEventListener('click', () =&gt; setCount(count() + 1))\n    el.querySelector('.decrement').addEventListener('click', () =&gt; setCount(count() - 1))\n  }, [])\n\n  return () =&gt; html`\n    &lt;h1&gt;Emmy - Counter&lt;/h1&gt;\n    &lt;h2&gt;You clicked &lt;strong&gt;${count()}&lt;/strong&gt; times&lt;/h2&gt;\n    &lt;div&gt;\n      &lt;button class='increment'&gt;\n        +\n      &lt;/button&gt;\n      &lt;button class='decrement'&gt;\n        -\n      &lt;/button&gt;\n    &lt;/div&gt;\n  `\n}\n\nload(counter, 'Counter')\n</code></pre>\n</section>","emmy4":"<section class=\"markdown flex flex-col justify-top items-left text-left p-0 m-0 w-full h-fit box-border\"><pre><code class=\"language-javascript\">import { html, load, Emmy } from 'emmy-dom'\n\nconst app = ({ el }) =&gt; html`\n  &lt;Slider&gt;\n    &lt;Slide&gt;\n      &lt;h1 class='text-6xl'&gt;Functional Web Components&lt;/h1&gt;\n      &lt;h2 class='text-4xl'&gt;El futuro de la web&lt;/h2&gt;\n    &lt;/Slide&gt;\n    &lt;Slide&gt;\n      &lt;Markdown classname='lg:!w-1/2'&gt;\n        ${Emmy.markdown.slide1}\n      &lt;/Markdown&gt;\n    &lt;/Slide&gt;\n  &lt;/Slider&gt;\n`\n\nload(app, 'App')\n</code></pre>\n</section>","functional1":"<section class=\"markdown flex flex-col justify-top items-left text-left p-0 m-0 w-full h-fit box-border\"><h2>Functional Components</h2>\n<p>Los componentes funcionales son funciones que devuelven un código HTML o una función que devuelve un código HTML. Puedes usar componentes funcionales para crear componentes sin clases. El siguiente ejemplo muestra cómo crear un componente funcional:</p>\n</section>","functional2":"<section class=\"markdown flex flex-col justify-top items-left text-left p-0 m-0 w-full h-fit box-border\"><h3>Emmy.js</h3>\n<pre><code class=\"language-javascript\">import { load, html } from 'emmy-dom'\n\nfunction helloWorld() {\n  return html`&lt;h1&gt;Hello World!&lt;/h1&gt;`\n}\n\nload(helloWorld, 'HelloWorld')\n</code></pre>\n</section>","functional3":"<section class=\"markdown flex flex-col justify-top items-left text-left p-0 m-0 w-full h-fit box-border\"><h3>Haunted.js</h3>\n<pre><code class=\"language-javascript\">import { html } from 'lit'\nimport { component } from 'haunted.js'\n\nfunction HelloWorld() {\n  return html`&lt;h1&gt;Hello World!&lt;/h1&gt;`\n}\n\ncustomElements.define('my-counter', component(Counter))\n</code></pre>\n</section>","lit1":"<section class=\"markdown flex flex-col justify-top items-left text-left p-0 m-0 w-full h-fit box-border\"><h2>LitElement</h2>\n<p>LitElement es una clase base para definir elementos web reutilizables usando la sintaxis de clase moderna. LitElement funciona con cualquier marco de renderizado o sin él, y es compatible con lit-html para definir plantillas de elementos.</p>\n</section>","lit2":"<section class=\"markdown flex flex-col justify-top items-left text-left p-0 m-0 w-full h-fit box-border\"><pre><code class=\"language-javascript\">import { LitElement, html } from 'lit'\nimport { customElement, property } from 'lit/decorators.js'\n\n@customElement('lit-counter')\nclass MyElement extends LitElement {\n  @property({type: Numeber, reflect: true})\n  count: number = 0\n\n  render() {\n    return html`\n      &lt;h1&gt;Lit - Counter&lt;/h1&gt;\n      &lt;h2&gt;You clicked &lt;strong&gt;${this.count}&lt;/strong&gt; times&lt;/h2&gt;\n      &lt;div&gt;\n        &lt;button @click=&quot;${() =&gt; this.count++}&quot;&gt;\n          +\n        &lt;/button&gt;\n        &lt;button @click=&quot;${() =&gt; this.count--}&quot;&gt;\n          -\n        &lt;/button&gt;\n      &lt;/div&gt;\n    `\n  }\n}\n</code></pre>\n</section>","webComponents":"<section class=\"markdown flex flex-col justify-top items-left text-left p-0 m-0 w-full h-fit box-border\"><h2>¿Qué son los Web Components?</h2>\n<p>Los Web Components son un <strong>conjunto de tecnologías</strong> que permiten la creación de componentes personalizados y reutilizables en aplicaciones web. Estos componentes se pueden utilizar en cualquier página web y son compatibles con todos los navegadores modernos.</p>\n</section>","webComponents2":"<section class=\"markdown flex flex-col justify-top items-left text-left p-0 m-0 w-full h-fit box-border\"><h2>Tecnologías que componen los Web Components</h2>\n<ol>\n<li><strong>Custom Elements</strong>: Permite la creación de elementos HTML personalizados.</li>\n<li><strong>Shadow DOM</strong>: Permite la creación de un árbol DOM encapsulado.</li>\n<li><strong>HTML Templates</strong>: Permite la creación de plantillas HTML reutilizables.</li>\n<li><strong>HTML Imports</strong>: Permite la importación de archivos HTML en otros archivos HTML.</li>\n</ol>\n<blockquote>\n<p>Nota: Actualmente, los HTML Imports están en desuso y se recomienda utilizar módulos JavaScript para importar componentes.</p>\n</blockquote>\n</section>"}})
+    lge({"markdown":{"emmy1":"<section class=\"markdown flex flex-col justify-top items-left text-left p-0 m-0 w-full h-fit box-border\"><h2>Emmy.js</h2>\n<p>Emmy.js es una biblioteca de JavaScript para construir interfaces de usuario utilizando componentes web funcionales. Inspirado en React.js, utiliza las API nativas de la plataforma para renderizar componentes, de forma declarativa.</p>\n<p>Su biblioteca principal <strong>emmy-dom</strong> te permite crear componentes utilizando componentes funcionales, componentes de clase y componentes de página. También incluye hooks y un router para crear SPAs.</p>\n</section>","emmy2":"<section class=\"markdown flex flex-col justify-top items-left text-left p-0 m-0 w-full h-fit box-border\"><pre><code class=\"language-javascript\">import { load, html } from 'emmy-dom'\n\nfunction counter({ el }) {\n  const [count, setCount] = el.useState(0)\n\n  el.useEffect(() =&gt; {\n    el.querySelector('.increment').addEventListener('click', () =&gt; setCount(count() + 1))\n    el.querySelector('.decrement').addEventListener('click', () =&gt; setCount(count() - 1))\n  }, [])\n\n  return () =&gt; html`\n    &lt;h1&gt;Emmy - Counter&lt;/h1&gt;\n    &lt;h2&gt;You clicked &lt;strong&gt;${count()}&lt;/strong&gt; times&lt;/h2&gt;\n    &lt;div&gt;\n      &lt;button class='increment'&gt;\n        +\n      &lt;/button&gt;\n      &lt;button class='decrement'&gt;\n        -\n      &lt;/button&gt;\n    &lt;/div&gt;\n  `\n}\n\nload(counter, 'Counter')\n</code></pre>\n</section>","emmy3":"<section class=\"markdown flex flex-col justify-top items-left text-left p-0 m-0 w-full h-fit box-border\"><pre><code class=\"language-javascript\">import { html, load, Emmy } from 'emmy-dom'\n\nconst app = ({ el }) =&gt; html`\n  &lt;Slider&gt;\n    &lt;Slide&gt;\n      &lt;h1 class='text-6xl'&gt;Functional Web Components&lt;/h1&gt;\n      &lt;h2 class='text-4xl'&gt;El futuro de la web&lt;/h2&gt;\n    &lt;/Slide&gt;\n    &lt;Slide&gt;\n      &lt;Markdown classname='lg:!w-1/2'&gt;\n        ${Emmy.markdown.slide1}\n      &lt;/Markdown&gt;\n    &lt;/Slide&gt;\n  &lt;/Slider&gt;\n`\n\nload(app, 'App')\n</code></pre>\n</section>","functional1":"<section class=\"markdown flex flex-col justify-top items-left text-left p-0 m-0 w-full h-fit box-border\"><h2>Functional Components</h2>\n<p>Los componentes funcionales son funciones que devuelven un código HTML o una función que devuelve un código HTML. Puedes usar componentes funcionales para crear componentes sin clases. El siguiente ejemplo muestra cómo crear un componente funcional:</p>\n</section>","functional2":"<section class=\"markdown flex flex-col justify-top items-left text-left p-0 m-0 w-full h-fit box-border\"><h3>Emmy.js</h3>\n<pre><code class=\"language-javascript\">import { load, html } from 'emmy-dom'\n\nfunction helloWorld() {\n  return html`&lt;h1&gt;Hello World!&lt;/h1&gt;`\n}\n\nload(helloWorld, 'HelloWorld')\n</code></pre>\n</section>","functional3":"<section class=\"markdown flex flex-col justify-top items-left text-left p-0 m-0 w-full h-fit box-border\"><h3>Haunted.js</h3>\n<pre><code class=\"language-javascript\">import { html } from 'lit'\nimport { component } from 'haunted'\n\nfunction HelloWorld() {\n  return html`&lt;h1&gt;Hello World!&lt;/h1&gt;`\n}\n\ncustomElements.define('my-counter', component(Counter))\n</code></pre>\n</section>","haunted1":"<section class=\"markdown flex flex-col justify-top items-left text-left p-0 m-0 w-full h-fit box-border\"><h2>Haunted.js</h2>\n<p>Haunted.js es una biblioteca de JavaScript para agregar la <strong>React's Hooks API</strong> a los componentes lit-html o hyperHTML. Haunted.js soporta la misma API que React Hooks. La esperanza es que al hacerlo, puedas <strong>reutilizar hooks</strong> disponibles en npm simplemente aliasando los nombres de los paquetes en la configuración de tu empaquetador.</p>\n<p>Actualmente Haunted.js soporta <strong>useCallback</strong>, <strong>useContext</strong>, <strong>useController</strong>, <strong>useEffect</strong>, <strong>useLayoutEffect</strong>, <strong>useMemo</strong>, <strong>useReducer</strong>, <strong>useRef</strong> y <strong>useState</strong>.</p>\n</section>","haunted2":"<section class=\"markdown flex flex-col justify-top items-left text-left p-0 m-0 w-full h-fit box-border\"><pre><code class=\"language-javascript\">import { html } from 'lit'\nimport { component, useState } from 'haunted'\n\nfunction Counter() {\n  const [count, setCount] = useState(0)\n\n  return html`\n    &lt;h1&gt;Haunted - Counter&lt;/h1&gt;\n    &lt;h2&gt;You clicked &lt;strong&gt;${count}&lt;/strong&gt; times&lt;/h2&gt;\n    &lt;div&gt;\n      &lt;button @click=${() =&gt; setCount(count + 1)}&gt;\n        +\n      &lt;/button&gt;\n      &lt;button @click=${() =&gt; setCount(count - 1)}&gt;\n        -\n      &lt;/button&gt;\n    &lt;/div&gt;\n  `\n}\n\ncustomElements.define('haunted-counter', component(Counter))\n</code></pre>\n</section>","lit1":"<section class=\"markdown flex flex-col justify-top items-left text-left p-0 m-0 w-full h-fit box-border\"><h2>Lit</h2>\n<p>Lit es una biblioteca de JavaScript para construir interfaces de usuario web. Está diseñado para ser pequeño, rápido y fácil de usar. Lit es compatible con la mayoría de los navegadores modernos y es el <strong>Estándar de la industria</strong>. Está basado en la clase <em>LitElement</em> que extiende de <em>HTMLElement</em>.\n<a href=\"https://lit.dev/\"><img src=\"/public/assets/lit.png\" alt=\"Lit\" class=\"invert grayscale contrast-125 saturate-200 opacity-50 dark:filter-none\"></a></p>\n</section>","lit2":"<section class=\"markdown flex flex-col justify-top items-left text-left p-0 m-0 w-full h-fit box-border\"><pre><code class=\"language-javascript\">import { LitElement, html } from 'lit'\nimport { customElement, property } from 'lit/decorators.js'\n\n@customElement('lit-counter')\nclass Counter extends LitElement {\n  @property({type: Number, reflect: true})\n  count: number = 0\n\n  render() {\n    return html`\n      &lt;h1&gt;Lit - Counter&lt;/h1&gt;\n      &lt;h2&gt;You clicked &lt;strong&gt;${this.count}&lt;/strong&gt; times&lt;/h2&gt;\n      &lt;div&gt;\n        &lt;button @click=&quot;${() =&gt; this.count++}&quot;&gt;\n          +\n        &lt;/button&gt;\n        &lt;button @click=&quot;${() =&gt; this.count--}&quot;&gt;\n          -\n        &lt;/button&gt;\n      &lt;/div&gt;\n    `\n  }\n}\n</code></pre>\n</section>","wc1":"<section class=\"markdown flex flex-col justify-top items-left text-left p-0 m-0 w-full h-fit box-border\"><h2>¿Qué son los Web Components?</h2>\n<p>Los Web Components son un <strong>conjunto de tecnologías</strong> que permiten la creación de componentes personalizados y reutilizables en aplicaciones web. Estos componentes se pueden utilizar en cualquier página web y son compatibles con todos los navegadores modernos.\n<a href=\"https://caniuse.com/custom-elementsv1\"><img src=\"/public/assets/caniuse.png\" alt=\"Web Components\"></a></p>\n</section>","wc2":"<section class=\"markdown flex flex-col justify-top items-left text-left p-0 m-0 w-full h-fit box-border\"><h2>Tecnologías que componen los Web Components</h2>\n<ol>\n<li><strong>Custom Elements</strong>: Permite la creación de elementos HTML personalizados.</li>\n<li><strong>Shadow DOM</strong>: Permite la creación de un árbol DOM encapsulado.</li>\n<li><strong>HTML Templates</strong>: Permite la creación de plantillas HTML reutilizables.</li>\n<li><strong>HTML Imports</strong>: Permite la importación de archivos HTML en otros archivos HTML.</li>\n</ol>\n<blockquote>\n<p>Nota: Actualmente, los HTML Imports están en desuso y se recomienda utilizar módulos JavaScript para importar componentes.</p>\n</blockquote>\n</section>","wc3":"<section class=\"markdown flex flex-col justify-top items-left text-left p-0 m-0 w-full h-fit box-border\"><h2>Vanilla Web Components</h2>\n<pre><code class=\"language-javascript\">class Counter extends HTMLElement {\n  constructor() {\n    super()\n    this.count = 0\n    this.render()\n  }\n\n  connectedCallback() {\n    this.querySelector('button:first-of-type').addEventListener('click', () =&gt; {\n      this.count++\n      this.render()\n    })\n    this.querySelector('button:last-of-type').addEventListener('click', () =&gt; {\n      this.count--\n      this.render()\n    })\n  }\n</code></pre>\n</section>","wc4":"<section class=\"markdown flex flex-col justify-top items-left text-left p-0 m-0 w-full h-fit box-border\"><pre><code class=\"language-javascript\">  render() {\n    this.innerHTML = `\n      &lt;h1&gt;Lit - Counter&lt;/h1&gt;\n      &lt;h2&gt;You clicked &lt;strong&gt;${this.count}&lt;/strong&gt; times&lt;/h2&gt;\n      &lt;div&gt;\n        &lt;button&gt;\n          +\n        &lt;/button&gt;\n        &lt;button&gt;\n          -\n        &lt;/button&gt;\n      &lt;/div&gt;\n    `\n  }\n}\n\ncustomElements.define('vanilla-counter', Counter)\n</code></pre>\n</section>"}})
     
     import Glide, { Controls, Keyboard } from '@glidejs/glide/dist/glide.modular.esm'
     import hljs from 'https://cdn.skypack.dev/highlight.js'
@@ -91,11 +94,6 @@
   
     function meta({ el, props }) {
   el.className = "size-[0]";
-  function dynamicallyResolveUnicode(text) {
-    return text.replace(/\\u[0-9A-F]{4}/g, (match) => {
-      return String.fromCharCode(parseInt(match.replace(/\\u/g, ""), 16));
-    });
-  }
   function callback(entries, observer) {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -192,25 +190,37 @@
     })
   
     function app({ el }) {
-  return el.className = "flex flex-col justify-center items-center text-center w-full h-full", () => html`
+  return el.className = "flex flex-col justify-center items-center text-center w-full h-full", () => dynamicallyResolveUnicode(html`
     <Slider>
       <Slide index='0'>
         <Meta title='Functional Web Components' />
         <h1 class='text-6xl'>Functional Web Components</h1>
         <h2 class='text-4xl'>El futuro de la web</h2>
       </Slide>
-      <Slide index='1'>
-        <Meta title='\u00BFQu\u00E9 son los Web Components?' />
-        <Markdown classname='md:!w-2/3'>
-          ${Emmy.markdown.webComponents ?? contentFallback}
-        </Markdown>
+      <Slide index='1' classname='gap-8'>
+        <h2 class='text-4xl'>Puedes escanear el c\u00F3digo QR para ver la presentaci\u00F3n</h2>
+        <img src='/public/assets/qrcode.png' alt='C\u00F3digo QR' class='h-1/2 w-auto' />
       </Slide>
       <Slide index='2'>
-        <Markdown classname='lg:!w-2/3'>
-          ${Emmy.markdown.webComponents2 ?? contentFallback}
+        <Meta title='\u00BFQu\u00E9 son los Web Components?' />
+        <Markdown classname='md:!w-2/3'>
+          ${Emmy.markdown.wc1 ?? contentFallback}
         </Markdown>
       </Slide>
-      <Slide classname='lg:!flex-row' index='3'>
+      <Slide index='3'>
+        <Markdown classname='lg:!w-2/3'>
+          ${Emmy.markdown.wc2 ?? contentFallback}
+        </Markdown>
+      </Slide>
+      <Slide classname='lg:!flex-row' index='4'>
+        <Markdown>
+          ${Emmy.markdown.wc3 ?? contentFallback}
+        </Markdown>
+        <Markdown>
+          ${Emmy.markdown.wc4 ?? contentFallback}
+        </Markdown>
+      </Slide>
+      <Slide classname='lg:!flex-row' index='5'>
         <Meta title='Lit' />
         <Markdown classname='lg:!w-2/5'>
           ${Emmy.markdown.lit1 ?? contentFallback}
@@ -219,7 +229,7 @@
           ${Emmy.markdown.lit2 ?? contentFallback}
         </Markdown>
       </Slide>
-      <Slide classname='gap-1 lg:!w-[90%] xl:!w-3/4' index='4'>
+      <Slide classname='gap-1 lg:!w-[90%] xl:!w-3/4' index='6'>
         <Meta title='Functional Web Components' />
         <Markdown classname='lg:!h-1/3'>
           ${Emmy.markdown.functional1 ?? contentFallback}
@@ -233,30 +243,49 @@
           </Markdown>
         </div>
       </Slide>
-      <Slide classname='lg:!flex-row' index='5'>
-        <Meta title='Emmy' />
-        <Markdown classname='lg:!w-2/6'>
-          ${Emmy.markdown.emmy2 ?? contentFallback}
+      <Slide classname='lg:!flex-row' index='7'>
+        <Meta title='Haunted.js' />
+        <Markdown classname='lg:!w-1/2'>
+          ${Emmy.markdown.haunted1 ?? contentFallback}
         </Markdown>
-        <Markdown classname='lg:!w-4/6'>
-          ${Emmy.markdown.emmy3 ?? contentFallback}
+        <Markdown classname='lg:!w-1/2'>
+          ${Emmy.markdown.haunted2 ?? contentFallback}
         </Markdown>
       </Slide>
-      <Slide classname='h-screen md:h-fit' index='6'>
+      <Slide classname='lg:!flex-row' index='8'>
+        <Meta title='Emmy.js' />
+        <Markdown classname='lg:!w-2/6'>
+          ${Emmy.markdown.emmy1 ?? contentFallback}
+        </Markdown>
+        <Markdown classname='lg:!w-4/6'>
+          ${Emmy.markdown.emmy2 ?? contentFallback}
+        </Markdown>
+      </Slide>
+      <Slide classname='h-screen md:h-fit' index='9'>
         <Meta title='Emmy - Counter' />
         <Counter />
       </Slide>
-      <Slide index='7'>
+      <Slide index='8'>
         <Meta title='Conclusi\u00F3n' />
         <Markdown classname='lg:!w-3/4'>
-          ${Emmy.markdown.emmy4 ?? contentFallback}
+          ${Emmy.markdown.emmy3 ?? contentFallback}
         </Markdown>
       </Slide>
     </Slider>
-  `;
+  `);
 }
     load(app, 'App')
     document.querySelectorAll('emmy-app').forEach((element) => {
+      element.connectedCallback()
+    })
+  
+    function dynamicallyResolveUnicode(text) {
+  return text.replace(/\\u[0-9A-F]{4}/g, (match) => {
+    return String.fromCharCode(parseInt(match.replace(/\\u/g, ""), 16));
+  });
+}
+    load(dynamicallyResolveUnicode, 'DynamicallyResolveUnicode')
+    document.querySelectorAll('emmy-dynamicallyresolveunicode').forEach((element) => {
       element.connectedCallback()
     })
   

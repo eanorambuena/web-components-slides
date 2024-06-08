@@ -1,13 +1,8 @@
 import { load } from 'emmy-dom/dist/server'
+import { dynamicallyResolveUnicode } from '../services'
 
 export function meta({ el , props }) {
   el.className = 'size-[0]'
-
-  function dynamicallyResolveUnicode(text) {
-    return text.replace(/\\u[0-9A-F]{4}/g, (match) => {
-      return String.fromCharCode(parseInt(match.replace(/\\u/g, ''), 16))
-    }	)
-  }
 
   function callback(entries, observer) {
     entries.forEach(entry => {

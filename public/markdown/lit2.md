@@ -3,8 +3,8 @@ import { LitElement, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 
 @customElement('lit-counter')
-class MyElement extends LitElement {
-  @property({type: Numeber, reflect: true})
+class Counter extends LitElement {
+  @property({type: Number, reflect: true})
   count: number = 0
 
   render() {

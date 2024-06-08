@@ -1,5 +1,27 @@
-## Emmy.js
+```javascript
+import { load, html } from 'emmy-dom'
 
-Emmy.js is a JavaScript library for building user interfaces using functional web components. Inspired by React.js, it uses the platform's native APIs to render components, in a declarative way.
+function counter({ el }) {
+  const [count, setCount] = el.useState(0)
 
-It's core library **emmy-dom** allows you to create components using functional components, class components, and page components. It also includes hooks and a router to create single page applications.
+  el.useEffect(() => {
+    el.querySelector('.increment').addEventListener('click', () => setCount(count() + 1))
+    el.querySelector('.decrement').addEventListener('click', () => setCount(count() - 1))
+  }, [])
+
+  return () => html`
+    <h1>Emmy - Counter</h1>
+    <h2>You clicked <strong>${count()}</strong> times</h2>
+    <div>
+      <button class='increment'>
+        +
+      </button>
+      <button class='decrement'>
+        -
+      </button>
+    </div>
+  `
+}
+
+load(counter, 'Counter')
+```

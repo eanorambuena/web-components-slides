@@ -1,4 +1,5 @@
 import { html, load, Emmy } from 'emmy-dom/dist/server'
+import { dynamicallyResolveUnicode } from './services'
 import './components/slider'
 import './components/counter'
 import './components/meta'
@@ -14,25 +15,37 @@ const contentFallback = `
 export function app({ el }) {
   el.className = 'flex flex-col justify-center items-center text-center w-full h-full'
 
-  return () => html`
+  return () => dynamicallyResolveUnicode(html`
     <Slider>
       <Slide index='0'>
         <Meta title='Functional Web Components' />
         <h1 class='text-6xl'>Functional Web Components</h1>
         <h2 class='text-4xl'>El futuro de la web</h2>
       </Slide>
-      <Slide index='1'>
-        <Meta title='¿Qué son los Web Components?' />
-        <Markdown classname='md:!w-2/3'>
-          ${Emmy.markdown.webComponents ?? contentFallback}
-        </Markdown>
+      <Slide index='1' classname='gap-8'>
+        <h2 class='text-4xl'>Puedes escanear el código QR para ver la presentación</h2>
+        <img src='/public/assets/qrcode.png' alt='Código QR' class='h-1/2 w-auto' />
       </Slide>
       <Slide index='2'>
-        <Markdown classname='lg:!w-2/3'>
-          ${Emmy.markdown.webComponents2 ?? contentFallback}
+        <Meta title='¿Qué son los Web Components?' />
+        <Markdown classname='md:!w-2/3'>
+          ${Emmy.markdown.wc1 ?? contentFallback}
         </Markdown>
       </Slide>
-      <Slide classname='lg:!flex-row' index='3'>
+      <Slide index='3'>
+        <Markdown classname='lg:!w-2/3'>
+          ${Emmy.markdown.wc2 ?? contentFallback}
+        </Markdown>
+      </Slide>
+      <Slide classname='lg:!flex-row' index='4'>
+        <Markdown>
+          ${Emmy.markdown.wc3 ?? contentFallback}
+        </Markdown>
+        <Markdown>
+          ${Emmy.markdown.wc4 ?? contentFallback}
+        </Markdown>
+      </Slide>
+      <Slide classname='lg:!flex-row' index='5'>
         <Meta title='Lit' />
         <Markdown classname='lg:!w-2/5'>
           ${Emmy.markdown.lit1 ?? contentFallback}
@@ -41,7 +54,7 @@ export function app({ el }) {
           ${Emmy.markdown.lit2 ?? contentFallback}
         </Markdown>
       </Slide>
-      <Slide classname='gap-1 lg:!w-[90%] xl:!w-3/4' index='4'>
+      <Slide classname='gap-1 lg:!w-[90%] xl:!w-3/4' index='6'>
         <Meta title='Functional Web Components' />
         <Markdown classname='lg:!h-1/3'>
           ${Emmy.markdown.functional1 ?? contentFallback}
@@ -55,27 +68,36 @@ export function app({ el }) {
           </Markdown>
         </div>
       </Slide>
-      <Slide classname='lg:!flex-row' index='5'>
-        <Meta title='Emmy' />
-        <Markdown classname='lg:!w-2/6'>
-          ${Emmy.markdown.emmy2 ?? contentFallback}
+      <Slide classname='lg:!flex-row' index='7'>
+        <Meta title='Haunted.js' />
+        <Markdown classname='lg:!w-1/2'>
+          ${Emmy.markdown.haunted1 ?? contentFallback}
         </Markdown>
-        <Markdown classname='lg:!w-4/6'>
-          ${Emmy.markdown.emmy3 ?? contentFallback}
+        <Markdown classname='lg:!w-1/2'>
+          ${Emmy.markdown.haunted2 ?? contentFallback}
         </Markdown>
       </Slide>
-      <Slide classname='h-screen md:h-fit' index='6'>
+      <Slide classname='lg:!flex-row' index='8'>
+        <Meta title='Emmy.js' />
+        <Markdown classname='lg:!w-2/6'>
+          ${Emmy.markdown.emmy1 ?? contentFallback}
+        </Markdown>
+        <Markdown classname='lg:!w-4/6'>
+          ${Emmy.markdown.emmy2 ?? contentFallback}
+        </Markdown>
+      </Slide>
+      <Slide classname='h-screen md:h-fit' index='9'>
         <Meta title='Emmy - Counter' />
         <Counter />
       </Slide>
-      <Slide index='7'>
+      <Slide index='8'>
         <Meta title='Conclusión' />
         <Markdown classname='lg:!w-3/4'>
-          ${Emmy.markdown.emmy4 ?? contentFallback}
+          ${Emmy.markdown.emmy3 ?? contentFallback}
         </Markdown>
       </Slide>
     </Slider>
-  `
+  `)
 }
 
 export const App = load(app, 'App')

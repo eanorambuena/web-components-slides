@@ -1,27 +1,19 @@
 ```javascript
-import { load, html } from 'emmy-dom'
+import { html, load, Emmy } from 'emmy-dom'
 
-export function counter({ el }) {
-  const [count, setCount] = el.useState(0)
+const app = ({ el }) => html`
+  <Slider>
+    <Slide>
+      <h1 class='text-6xl'>Functional Web Components</h1>
+      <h2 class='text-4xl'>El futuro de la web</h2>
+    </Slide>
+    <Slide>
+      <Markdown classname='lg:!w-1/2'>
+        ${Emmy.markdown.slide1}
+      </Markdown>
+    </Slide>
+  </Slider>
+`
 
-  el.useEffect(() => {
-    el.querySelector('.increment').addEventListener('click', () => setCount(count() + 1))
-    el.querySelector('.decrement').addEventListener('click', () => setCount(count() - 1))
-  }, [])
-
-  return () => html`
-    <h1>Emmy - Counter</h1>
-    <h2>You clicked <strong>${count()}</strong> times</h2>
-    <div>
-      <button class='increment'>
-        +
-      </button>
-      <button class='decrement'>
-        -
-      </button>
-    </div>
-  `
-}
-
-load(counter, 'Counter')
+load(app, 'App')
 ```
