@@ -17,8 +17,22 @@ export function slider({ el, children }) {
   
   el.useEffect(() => {
     Emmy.isBrowser = true
+
+    let slideIndex = 0
+    try {
+      const url = new URL(window.location.href)
+      const slide = url.searchParams.get('slide')
+      if (slide) {
+        const index = parseInt(slide)
+        if (index >= 0) {
+          slideIndex = index
+        }
+      }
+    } catch (e) {}
+
     setTimeout(() => {
-      Emmy.glide = new Emmy.Glide('.glide').mount({ Controls, Keyboard })
+      Emmy.glide = new Emmy.Glide('.glide', { startAt: slideIndex })
+        .mount({ Controls, Keyboard })
     }, 200)
   }, [])
 

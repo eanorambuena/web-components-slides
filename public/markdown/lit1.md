@@ -1,3 +1,3 @@
 ## LitElement
 
-LitElement is a simple base class for creating fast, lightweight web components. It is a part of the Lit stack, a set of tools for building fast, lightweight web components.
+LitElement es una clase base para definir elementos web reutilizables usando la sintaxis de clase moderna. LitElement funciona con cualquier marco de renderizado o sin él, y es compatible con lit-html para definir plantillas de elementos.
