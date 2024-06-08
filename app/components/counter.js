@@ -3,13 +3,28 @@ import { load, html } from 'emmy-dom/dist/server'
 export function counter({ el }) {
   el.className = 'flex flex-col gap-6 justify-center items-center w-fit h-full text-xl'
   const [count, setCount] = el.useState(0)
+  const increment = () => setCount(count() + 1)
+  const decrement = () => setCount(count() - 1)
 
-  setTimeout(() =>
-    el.useEffect(() => {
-      el.querySelector('.increment').addEventListener('click', () => setCount(count() + 1))
-      el.querySelector('.decrement').addEventListener('click', () => setCount(count() - 1))
-    }, [])
-  )
+  el.useEffect(() => {
+    function callback(entries, observer) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          el.querySelector('.increment').addEventListener('click', increment)
+          el.querySelector('.decrement').addEventListener('click', decrement)
+        }
+      })
+    }
+    let options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 1.0
+    }
+    if (window.IntersectionObserver === undefined)
+      return ''
+    let observer = new IntersectionObserver(callback, options)
+    observer.observe(el)
+  }, [])
 
   return () => html`
     <h1 class='text-4xl'>Emmy - Counter</h1>

@@ -1,11 +1,12 @@
-### Emmy.js
+### Haunted.js
 
 ```javascript
-import { load, html } from 'emmy-dom'
+import { html } from 'lit'
+import { component } from 'haunted'
 
-function helloWorld() {
+function HelloWorld() {
   return html`<h1>Hello World!</h1>`
 }
 
-load(helloWorld, 'HelloWorld')
+customElements.define('my-counter', component(Counter))
 ```

@@ -60,10 +60,10 @@ export function app({ el }) {
           ${Emmy.markdown.functional1 ?? contentFallback}
         </Markdown>
         <div class='flex flex-col md:flex-row justify-center items-start gap-4 w-full'>
-          <Markdown classname='md:!w-2/5 items-start'>
+          <Markdown classname='md:!w-3/5 items-start'>
             ${Emmy.markdown.functional2 ?? contentFallback}
           </Markdown>
-          <Markdown classname='md:!w-3/5 items-start'>
+          <Markdown classname='md:!w-2/5 items-start'>
             ${Emmy.markdown.functional3 ?? contentFallback}
           </Markdown>
         </div>
