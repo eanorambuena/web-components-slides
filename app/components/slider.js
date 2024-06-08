@@ -10,35 +10,35 @@ if (!Emmy.Glide) {
   Emmy.markdown = ''
   var Controls = {}
   var Keyboard = {}
+  Emmy.isBrowser = false
 }
 
 export function slider({ el, children }) {
   el.className = 'flex flex-col justify-center items-center w-full h-full'
   
-  el.useEffect(() => {
+  console.log('browser and server')
+
+  let slideIndex = 0
+  try {
+    const url = new URL(window.location.href)
+    const slide = url.searchParams.get('slide')
+    if (slide) {
+      const index = parseInt(slide)
+      if (index >= 0) {
+        slideIndex = index
+      }
+    }
+  } catch (e) {}
+
+  el.useEffect(async () => {
     Emmy.isBrowser = true
 
-    let slideIndex = 0
-    try {
-      const url = new URL(window.location.href)
-      const slide = url.searchParams.get('slide')
-      if (slide) {
-        const index = parseInt(slide)
-        if (index >= 0) {
-          slideIndex = index
-        }
-      }
-    } catch (e) {}
-
-    setTimeout(() => {
-      Emmy.glide = new Emmy.Glide('.glide', { startAt: slideIndex })
-        .mount({ Controls, Keyboard })
-    }, 200)
+    Emmy.glide = new Emmy.Glide('.glide', { startAt: slideIndex })
+      .mount({ Controls, Keyboard })
   }, [])
 
-
   if (!Emmy.isBrowser) {
-    console.log('is not browser')
+    console.log('server')
     return () => html`
       <section class='w-full h-full p-4'>
         ${children()}
@@ -46,11 +46,9 @@ export function slider({ el, children }) {
     `
   }
 
-  console.log('is browser')
+  console.log('browser')
 
   return () => html`
-    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css'>
-    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css'>
     <div class='glide w-full h-full'>
       <div class='glide__track w-full h-full' data-glide-el='track'>
         <section class='glide__slides w-full h-full'>

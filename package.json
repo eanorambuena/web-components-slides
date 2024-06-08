@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "concurrently --raw 'npm run watch' 'vite'",
+    "start": "vite",
     "build": "npm run ssr && vite build",
     "preview": "vite preview",
     "watch": "watch 'npm run ssr' ./app ./public",

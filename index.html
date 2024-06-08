@@ -1,16 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>OSUC | Functional Web Components</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="#0F172A">
+    <meta name="author" content="Emmanuel Norambuena">
+    <meta name="description" content="Presentación sobre Functional Web Components para Open Source eUC">
     <link rel="icon" href="https://raw.githubusercontent.com/emmyjs/emmyjs.github.io/main/public/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="./styles/index.css">
     <link rel="stylesheet" href="https://emmyjs.pages.dev/dracula-modified.css">
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css'>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css'>
   </head>
-  <body class="antialiased min-h-[90dvh] lg:h-[100vh] lg:min-h-none lg:w-[100dvw] flex flex-col justify-center items-center bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-50">
+  <body class="antialiased min-h-[90dvh] lg:h-[100vh] lg:min-h-none flex flex-col justify-center items-center bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-50">
     <main class="flex flex-col justify-center items-center space-y-3 text-center w-full h-full">
       
     <emmy-app state="{'rerenderCount':0}" class="flex flex-col justify-center items-center text-center w-full h-full">
@@ -22,9 +26,9 @@
       <emmy-slide state="{'rerenderCount':0}" class="flex flex-col justify-center items-center w-full min-h-screen h-full lg:min-h-none" index="0"></emmy-slide>
       <emmy-slide state="{'rerenderCount':0}" class="flex flex-col justify-center items-center w-full min-h-screen h-full lg:min-h-none" index="1"></emmy-slide>
       <emmy-slide state="{'rerenderCount':0}" class="flex flex-col justify-center items-center w-full min-h-screen h-full lg:min-h-none" index="2"></emmy-slide>
-      <emmy-slide state="{'rerenderCount':0}" class="flex flex-col justify-center items-center w-full min-h-screen h-full lg:min-h-none" classname="md:!flex-row" index="3"></emmy-slide>
-      <emmy-slide state="{'rerenderCount':0}" class="flex flex-col justify-center items-center w-full min-h-screen h-full lg:min-h-none" classname="gap-1 xl:!w-3/4" index="4"></emmy-slide>
-      <emmy-slide state="{'rerenderCount':0}" class="flex flex-col justify-center items-center w-full min-h-screen h-full lg:min-h-none" classname="md:!flex-row" index="5"></emmy-slide>
+      <emmy-slide state="{'rerenderCount':0}" class="flex flex-col justify-center items-center w-full min-h-screen h-full lg:min-h-none" classname="lg:!flex-row" index="3"></emmy-slide>
+      <emmy-slide state="{'rerenderCount':0}" class="flex flex-col justify-center items-center w-full min-h-screen h-full lg:min-h-none" classname="gap-1 lg:!w-[90%] xl:!w-3/4" index="4"></emmy-slide>
+      <emmy-slide state="{'rerenderCount':0}" class="flex flex-col justify-center items-center w-full min-h-screen h-full lg:min-h-none" classname="lg:!flex-row" index="5"></emmy-slide>
       <emmy-slide state="{'rerenderCount':0}" class="flex flex-col justify-center items-center w-full min-h-screen h-full lg:min-h-none" classname="h-screen md:h-fit" index="6"></emmy-slide>
       <emmy-slide state="{'rerenderCount':0}" class="flex flex-col justify-center items-center w-full min-h-screen h-full lg:min-h-none" index="7"></emmy-slide>
     
@@ -149,30 +153,26 @@
     })
   
     function slider({ el, children }) {
-  if (el.className = "flex flex-col justify-center items-center w-full h-full", el.useEffect(() => {
-    Emmy.isBrowser = !0;
-    let slideIndex = 0;
-    try {
-      const slide = new URL(window.location.href).searchParams.get("slide");
-      if (slide) {
-        const index = parseInt(slide);
-        if (index >= 0)
-          slideIndex = index;
-      }
-    } catch (e) {
+  el.className = "flex flex-col justify-center items-center w-full h-full", console.log("browser and server");
+  let slideIndex = 0;
+  try {
+    const slide = new URL(window.location.href).searchParams.get("slide");
+    if (slide) {
+      const index = parseInt(slide);
+      if (index >= 0)
+        slideIndex = index;
     }
-    setTimeout(() => {
-      Emmy.glide = new Emmy.Glide(".glide", { startAt: slideIndex }).mount({ Controls, Keyboard });
-    }, 200);
+  } catch (e) {
+  }
+  if (el.useEffect(async () => {
+    Emmy.isBrowser = !0, Emmy.glide = new Emmy.Glide(".glide", { startAt: slideIndex }).mount({ Controls, Keyboard });
   }, []), !Emmy.isBrowser)
-    return console.log("is not browser"), () => html`
+    return console.log("server"), () => html`
       <section class='w-full h-full p-4'>
         ${children()}
       </section>
     `;
-  return console.log("is browser"), () => html`
-    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css'>
-    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css'>
+  return console.log("browser"), () => html`
     <div class='glide w-full h-full'>
       <div class='glide__track w-full h-full' data-glide-el='track'>
         <section class='glide__slides w-full h-full'>
@@ -210,7 +210,7 @@
           ${Emmy.markdown.webComponents2 ?? contentFallback}
         </Markdown>
       </Slide>
-      <Slide classname='md:!flex-row' index='3'>
+      <Slide classname='lg:!flex-row' index='3'>
         <Meta title='Lit' />
         <Markdown classname='lg:!w-2/5'>
           ${Emmy.markdown.lit1 ?? contentFallback}
@@ -219,21 +219,21 @@
           ${Emmy.markdown.lit2 ?? contentFallback}
         </Markdown>
       </Slide>
-      <Slide classname='gap-1 xl:!w-3/4' index='4'>
+      <Slide classname='gap-1 lg:!w-[90%] xl:!w-3/4' index='4'>
         <Meta title='Functional Web Components' />
         <Markdown classname='lg:!h-1/3'>
           ${Emmy.markdown.functional1 ?? contentFallback}
         </Markdown>
         <div class='flex flex-col md:flex-row justify-center items-start gap-4 w-full'>
-          <Markdown classname='lg:!w-2/5 items-start'>
+          <Markdown classname='md:!w-2/5 items-start'>
             ${Emmy.markdown.functional2 ?? contentFallback}
           </Markdown>
-          <Markdown classname='lg:!w-3/5 items-start'>
+          <Markdown classname='md:!w-3/5 items-start'>
             ${Emmy.markdown.functional3 ?? contentFallback}
           </Markdown>
         </div>
       </Slide>
-      <Slide classname='md:!flex-row' index='5'>
+      <Slide classname='lg:!flex-row' index='5'>
         <Meta title='Emmy' />
         <Markdown classname='lg:!w-2/6'>
           ${Emmy.markdown.emmy2 ?? contentFallback}
