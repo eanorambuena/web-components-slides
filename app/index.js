@@ -24,7 +24,7 @@ export function app({ el }) {
       </Slide>
       <Slide index='1' classname='gap-8'>
         <h2 class='text-4xl'>Puedes escanear el código QR para ver la presentación</h2>
-        <img src='/public/assets/qrcode.png' alt='Código QR' class='h-1/2 w-auto' />
+        <img src='/assets/qrcode.png' alt='Código QR' class='h-1/2 w-auto' />
       </Slide>
       <Slide index='2'>
         <Meta title='¿Qué son los Web Components?' />
