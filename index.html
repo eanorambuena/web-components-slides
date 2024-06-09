@@ -32,7 +32,7 @@
       <emmy-slide state="{'rerenderCount':0}" class="flex flex-col justify-center items-center w-full min-h-screen h-full lg:min-h-none" classname="gap-1 lg:!w-[90%] xl:!w-3/4" index="6"></emmy-slide>
       <emmy-slide state="{'rerenderCount':0}" class="flex flex-col justify-center items-center w-full min-h-screen h-full lg:min-h-none" classname="lg:!flex-row" index="7"></emmy-slide>
       <emmy-slide state="{'rerenderCount':0}" class="flex flex-col justify-center items-center w-full min-h-screen h-full lg:min-h-none" classname="lg:!flex-row" index="8"></emmy-slide>
-      <emmy-slide state="{'rerenderCount':0}" class="flex flex-col justify-center items-center w-full min-h-screen h-full lg:min-h-none" classname="h-screen md:h-fit" index="9"></emmy-slide>
+      <emmy-slide state="{'rerenderCount':0}" class="flex flex-col justify-center items-center w-full min-h-screen h-full lg:min-h-none" classname="h-screen md:h-fit" index="9" reload="true"></emmy-slide>
       <emmy-slide state="{'rerenderCount':0}" class="flex flex-col justify-center items-center w-full min-h-screen h-full lg:min-h-none" index="8"></emmy-slide>
     
       </section>
@@ -136,7 +136,10 @@
       if (entry.isIntersecting) {
         if (props()?.index) {
           const url = new URL(window.location.href);
-          url.searchParams.set("slide", props().index()), window.history.pushState({}, "", url);
+          if (url.searchParams.set("slide", props().index()), window.location.href === url.href)
+            return;
+          if (window.history.pushState({}, "", url), props()?.reload && props().reload() === "true")
+            window.location.reload();
         }
       }
     });
@@ -274,7 +277,7 @@
           ${Emmy.markdown.emmy2 ?? contentFallback}
         </Markdown>
       </Slide>
-      <Slide classname='h-screen md:h-fit' index='9'>
+      <Slide classname='h-screen md:h-fit' index='9' reload='true'>
         <Meta title='Emmy - Counter' />
         <Counter />
       </Slide>

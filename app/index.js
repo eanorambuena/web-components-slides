@@ -86,7 +86,7 @@ export function app({ el }) {
           ${Emmy.markdown.emmy2 ?? contentFallback}
         </Markdown>
       </Slide>
-      <Slide classname='h-screen md:h-fit' index='9'>
+      <Slide classname='h-screen md:h-fit' index='9' reload='true'>
         <Meta title='Emmy - Counter' />
         <Counter />
       </Slide>

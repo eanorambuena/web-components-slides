@@ -9,7 +9,11 @@ export function slide({ el, children, props }) {
         if (props()?.index) {
           const url = new URL(window.location.href)
           url.searchParams.set('slide', props().index())
+          if (window.location.href === url.href)
+            return
           window.history.pushState({}, '', url)
+          if (props()?.reload && props().reload() === 'true')
+            window.location.reload()
         }
       }
     })
