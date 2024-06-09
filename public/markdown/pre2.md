@@ -1,7 +1,7 @@
 ```javascript
-import { html, load, Emmy } from 'emmy-dom'
+import { html, load, Emmy } from 'emmy-dom/dist/server'
 
-const app = ({ el }) => html`
+export const app = ({ el }) => html`
   <Slider>
     <Slide>
       <h1 class='text-6xl'>Functional Web Components</h1>

@@ -13,6 +13,15 @@ const contentFallback = `
   </section>
 `
 
+const firstSlide = (index = 0) => html`
+  <Slide index='${index}' classname='!w-fit gap-8'>
+    <Meta title='Functional Web Components' />
+    <h1 class='text-6xl'>Functional Web Components</h1>
+    <h2 class='text-4xl'>El futuro de la web</h2>
+    <p class='text-md text-slate-500 w-full md:text-left'>Por Emmanuel Norambuena</p>
+  </Slide>
+`
+
 export function app({ el }) {
   el.className = 'flex flex-col justify-center items-center text-center w-full h-full'
 
@@ -35,10 +44,12 @@ export function app({ el }) {
         </Markdown>
       </Slide>
       <Slide index='3' classname='gap-8' reload='true'>
+        <Meta title='Un poco sobre mí' />
         <h2 class='text-4xl'>Un poco sobre mí...</h2>
         <Carousel />
       </Slide>
       <Slide index='4'>
+        <Meta title='Vanilla Web Components' />
         <Markdown classname='lg:!w-2/3'>
           ${Emmy.markdown.wc2 ?? contentFallback}
         </Markdown>
@@ -97,10 +108,34 @@ export function app({ el }) {
         <Counter />
       </Slide>
       <Slide index='11'>
-        <Meta title='Conclusión' />
-        <Markdown classname='lg:!w-3/4'>
-          ${Emmy.markdown.emmy3 ?? contentFallback}
+        <Meta title='Desafíos' />
+        <Markdown classname='lg:!w-1/3'>
+          ${Emmy.markdown.challenges ?? contentFallback}
         </Markdown>
+      </Slide>
+      <Slide classname='lg:!flex-row' index='12'>
+        <Meta title='Emmy Prerendering' />
+        <Markdown classname='lg:!w-1/2'>
+          ${Emmy.markdown.pre1 ?? contentFallback}
+        </Markdown>
+        <Markdown classname='lg:!w-1/2'>
+          ${Emmy.markdown.pre2 ?? contentFallback}
+        </Markdown>
+      </Slide>
+      <Slide classname='lg:!flex-row' index='13'>
+        <Meta title='Tipos de Reactividad' />
+        <Markdown classname='lg:!w-1/2 h-full justify-start'>
+          ${Emmy.markdown.reactive1 ?? contentFallback}
+        </Markdown>
+        <Markdown classname='lg:!w-1/2 h-full justify-start'>
+          ${Emmy.markdown.reactive2 ?? contentFallback}
+        </Markdown>
+      </Slide>
+      <Slide index='14' classname='!w-fit gap-8'>
+        <Meta title='Functional Web Components' />
+        <h1 class='text-6xl'>Functional Web Components</h1>
+        <h2 class='text-4xl'>El futuro de la web</h2>
+        <p class='text-md text-slate-500 w-full md:text-left'>Por Emmanuel Norambuena</p>
       </Slide>
     </Slider>
   `)
