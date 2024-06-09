@@ -34,8 +34,8 @@ export function app({ el }) {
           ${Emmy.markdown.wc1 ?? contentFallback}
         </Markdown>
       </Slide>
-      <Slide index='3' classname='gap-8'>
-        <h2 class='text-4xl'>Un poco de mí...</h2>
+      <Slide index='3' classname='gap-8' reload='true'>
+        <h2 class='text-4xl'>Un poco sobre mí...</h2>
         <Carousel />
       </Slide>
       <Slide index='4'>
