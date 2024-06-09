@@ -15,8 +15,6 @@ if (!Emmy.Glide) {
 
 export function slider({ el, children }) {
   el.className = 'flex flex-col justify-center items-center w-full h-full'
-  
-  console.log('browser and server')
 
   let slideIndex = 0
   try {
@@ -38,15 +36,12 @@ export function slider({ el, children }) {
   }, [])
 
   if (!Emmy.isBrowser) {
-    console.log('server')
     return () => html`
       <section class='w-full h-full p-4'>
         ${children()}
       </section>
     `
   }
-
-  console.log('browser')
 
   return () => html`
     <div class='glide w-full h-full'>
@@ -56,8 +51,8 @@ export function slider({ el, children }) {
         </section>
       </div>
       <div class='glide__arrows opacity-0 w-full flex flex-row justify-between' data-glide-el='controls'>
-        <button class='glide__arrow glide__arrow--left w-1/3 h-full' data-glide-dir='<'>prev</button>
-        <button class='glide__arrow glide__arrow--right w-1/3 h-full' data-glide-dir='>'>next</button>
+        <button class='glide__arrow glide__arrow--left w-1/4 h-full' data-glide-dir='<'>prev</button>
+        <button class='glide__arrow glide__arrow--right w-1/4 h-full' data-glide-dir='>'>next</button>
       </div>
     </div>
   `

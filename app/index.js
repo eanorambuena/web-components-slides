@@ -43,10 +43,15 @@ export function app({ el }) {
           ${Emmy.markdown.wc1 ?? contentFallback}
         </Markdown>
       </Slide>
-      <Slide index='3' classname='gap-8' reload='true'>
-        <Meta title='Un poco sobre mí' />
-        <h2 class='text-4xl'>Un poco sobre mí...</h2>
-        <Carousel />
+      <Slide index='3'reload='true'>
+        <a href='https://www.linkedin.com/in/eanorambuena/'
+          target='_blank' rel='noopener noreferrer' aria-label='LinkedIn'
+          class='flex flex-col justify-center items-center gap-8 h-full w-full'
+        >
+          <Meta title='Un poco sobre mí' />
+          <h2 class='text-4xl'>Un poco sobre mí...</h2>
+          <Carousel />
+        </a>
       </Slide>
       <Slide index='4'>
         <Meta title='Vanilla Web Components' />
@@ -113,12 +118,18 @@ export function app({ el }) {
           ${Emmy.markdown.challenges ?? contentFallback}
         </Markdown>
       </Slide>
-      <Slide classname='lg:!flex-row' index='12'>
+      <Slide classname='w-full md:!w-3/4 lg:!w-full lg:!flex-row' index='12'>
         <Meta title='Emmy Prerendering' />
-        <Markdown classname='lg:!w-1/2'>
-          ${Emmy.markdown.pre1 ?? contentFallback}
-        </Markdown>
-        <Markdown classname='lg:!w-1/2'>
+        <section class='lg:w-1/2 flex flex-col justify-center gap-1'>
+          <Markdown classname='[&_h2]:mt-0'>
+            ${Emmy.markdown.pre1 ?? contentFallback}
+          </Markdown>
+          <a class='flex flex-col gap-4 h-fit w-full lg:w-[95%]' href='/demo' target='_blank'>
+            <img src="/assets/server.png" alt="Pre-rendering in Server" class='w-full' />
+            <img src="/assets/browser.png" alt="Pre-rendering in Client" class='w-full' />
+          </a>
+        </section>
+        <Markdown classname='w-full lg:!w-1/2'>
           ${Emmy.markdown.pre2 ?? contentFallback}
         </Markdown>
       </Slide>

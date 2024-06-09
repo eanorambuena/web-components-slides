@@ -7,3 +7,5 @@
 5. **ES Modules**: Permite la importación y exportación de módulos JavaScript.
 
 > Nota: Actualmente, los HTML Imports están en desuso y se recomienda utilizar módulos JavaScript para importar componentes.
+
+[Volver a la presentación](/?slide=12)

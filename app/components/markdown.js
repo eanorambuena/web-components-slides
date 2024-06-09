@@ -6,7 +6,7 @@ export function markdown({ el, children, props }) {
     className += ` ${props().classname()}`
   }
 
-  el.className = `flex flex-col justify-center items-center w-full h-full p-0 m-0 prose prose-slate dark:prose-invert max-w-none ${className}`
+  el.className = `flex flex-col justify-center items-center w-full h-full p-0 m-0 prose prose-slate dark:prose-invert max-w-none text-left ${className}`
 
   return () => children()
 }
