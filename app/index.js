@@ -118,7 +118,16 @@ export function app({ el }) {
           ${Emmy.markdown.challenges ?? contentFallback}
         </Markdown>
       </Slide>
-      <Slide classname='w-full md:!w-3/4 lg:!w-full lg:!flex-row' index='12'>
+      <Slide classname='lg:!flex-row' index='12'>
+        <Meta title='Tipos de Reactividad' />
+        <Markdown classname='lg:!w-1/2 h-full justify-start'>
+          ${Emmy.markdown.reactive1 ?? contentFallback}
+        </Markdown>
+        <Markdown classname='lg:!w-1/2 h-full justify-start'>
+          ${Emmy.markdown.reactive2 ?? contentFallback}
+        </Markdown>
+      </Slide>
+      <Slide classname='w-full md:!w-3/4 lg:!w-full lg:!flex-row' index='13'>
         <Meta title='Emmy Prerendering' />
         <section class='lg:w-1/2 flex flex-col justify-center gap-1'>
           <Markdown classname='[&_h2]:mt-0'>
@@ -131,15 +140,6 @@ export function app({ el }) {
         </section>
         <Markdown classname='w-full lg:!w-1/2'>
           ${Emmy.markdown.pre2 ?? contentFallback}
-        </Markdown>
-      </Slide>
-      <Slide classname='lg:!flex-row' index='13'>
-        <Meta title='Tipos de Reactividad' />
-        <Markdown classname='lg:!w-1/2 h-full justify-start'>
-          ${Emmy.markdown.reactive1 ?? contentFallback}
-        </Markdown>
-        <Markdown classname='lg:!w-1/2 h-full justify-start'>
-          ${Emmy.markdown.reactive2 ?? contentFallback}
         </Markdown>
       </Slide>
       <Slide index='14' classname='!w-fit gap-8'>
