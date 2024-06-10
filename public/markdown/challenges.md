@@ -11,4 +11,5 @@
 [**Skate.js** 💀: SSR ✅](https://skatejs.netlify.app/)<br>
 [**Enhance**: SSR ✅](https://enhance.dev/)
 
-[Artículo recomendado](https://medium.com/@yanguly/breaking-down-barriers-easy-web-components-with-lit-524fe70206b3)
+[Artículo recomendado](https://medium.com/@yanguly/breaking-down-barriers-easy-web-components-with-lit-524fe70206b3)<br>
+[awesome-web-components (Repositorio recomendado)](https://github.com/web-padawan/awesome-web-components)

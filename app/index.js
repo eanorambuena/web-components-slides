@@ -114,7 +114,7 @@ export function app({ el }) {
       </Slide>
       <Slide index='11'>
         <Meta title='Desafíos' />
-        <Markdown classname='lg:!w-1/3'>
+        <Markdown classname='lg:w-fit lg:max-w-1/2'>
           ${Emmy.markdown.challenges ?? contentFallback}
         </Markdown>
       </Slide>
@@ -136,7 +136,7 @@ export function app({ el }) {
           <Markdown classname='[&_h2]:mt-0'>
             ${Emmy.markdown.pre1 ?? contentFallback}
           </Markdown>
-          <a class='flex flex-col gap-4 h-fit w-full lg:w-[95%]' href='/demo' target='_blank'>
+          <a class='flex flex-col gap-4 h-fit w-full lg:w-[95%] hover:scale-105 transition' href='/demo' target='_blank'>
             <img src="/assets/server.png" alt="Pre-rendering in Server" class='w-full' />
             <img src="/assets/browser.png" alt="Pre-rendering in Client" class='w-full' />
           </a>
@@ -145,7 +145,31 @@ export function app({ el }) {
           ${Emmy.markdown.pre2 ?? contentFallback}
         </Markdown>
       </Slide>
-      <Slide index='14' classname='!w-fit gap-8'>
+      <Slide index='14'>
+        <Meta title='Menciones' />
+        <h2 class='text-4xl'>Menciones Honrosas</h2>
+        <section class='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 p-8 pt-4'>
+          <a href='https://www.bitovi.com/open-source/react-to-web-component' target='_blank' rel='noopener noreferrer'>
+            <img alt='react-to-web-component' src='https://opengraph.githubassets.com/5e95cde1e9037e59d74cd0f061ca1fee36ff02d8f77c7ea242f7f4c541bbfe29/bitovi/react-to-web-component'>
+          </a>
+          <a href='https://atomicojs.dev/' target='_blank' rel='noopener noreferrer'>
+            <img alt='Atomicojs' src='https://opengraph.githubassets.com/5e95cde1e9037e59d74cd0f061ca1fee36ff02d8f77c7ea242f7f4c541bbfe29/atomicojs/atomico'>
+          </a>
+          <a href='https://github.com/lastmjs/functional-element' target='_blank' rel='noopener noreferrer'>
+            <img alt='functional-element' src='https://opengraph.githubassets.com/5e95cde1e9037e59d74cd0f061ca1fee36ff02d8f77c7ea242f7f4c541bbfe29/lastmjs/functional-element'>
+          </a>
+          <a href='https://github.com/aggre/ullr' target='_blank' rel='noopener noreferrer'>
+            <img alt='ullr' src='https://opengraph.githubassets.com/5e95cde1e9037e59d74cd0f061ca1fee36ff02d8f77c7ea242f7f4c541bbfe29/aggre/ullr'>
+          </a>
+          <a href='https://hybrids.js.org/' target='_blank' rel='noopener noreferrer'>
+            <img alt='Hybrids' src='https://opengraph.githubassets.com/5e95cde1e9037e59d74cd0f061ca1fee36ff02d8f77c7ea242f7f4c541bbfe29/hybridsjs/hybrids'>
+          </a>
+          <a href='https://github.com/solidjs/solid/tree/main/packages/solid-element' target='_blank' rel='noopener noreferrer'>
+            <img alt='solid-element' src='https://opengraph.githubassets.com/5e95cde1e9037e59d74cd0f061ca1fee36ff02d8f77c7ea242f7f4c541bbfe29/solidjs/solid'>
+          </a>
+        </section>
+      </Slide>
+      <Slide index='15' classname='!w-fit gap-8'>
         <Meta title='Functional Web Components' />
         <h1 class='text-6xl'>Functional Web Components</h1>
         <h2 class='text-4xl'>El futuro de la web</h2>
