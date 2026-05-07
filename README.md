@@ -13,7 +13,7 @@
     <img src="https://img.youtube.com/vi/WSNAkqKNt94/maxresdefault.jpg" alt="Functional Web Components" width="600">
   </a>
 </p>
-<p align="center">▶ <a href="https://www.youtube.com/watch?v=WSNAkqKNt94">Watch Talk</a></p>
+<p align="center">▶ <a href="https://www.youtube.com/watch?v=WSNAkqKNt94">Click here or the thumbnail to watch the talk on YouTube</a></p>
 
 ---
 
